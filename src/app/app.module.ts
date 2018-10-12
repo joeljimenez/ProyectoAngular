@@ -12,6 +12,12 @@ import { SidebarComponent } from './Shared/sidebar/sidebar.component';
 import { NavegacionComponent } from './Shared/navegacion/navegacion.component';
 import { SidebarService } from './Service/sidebar.service';
 import { SharedService } from './Service/shared.service';
+import { APP_ROUTES } from './app.router';
+import { PagesComponent } from './Pages/pages.component';
+import { RegistrarComponent } from './login/registrar.component';
+// import { RegistrarComponent } from './login/registers.component';
+
+
 
 
 @NgModule({
@@ -24,10 +30,15 @@ import { SharedService } from './Service/shared.service';
     HeaderComponent,
     Grafica1Component,
     SidebarComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    PagesComponent,
+    RegistrarComponent,
+    // RegistrarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTES
+
   ],
   providers: [
 
