@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { ProgressComponent } from './progress/progress.component';
 import { PagesComponent } from './pages.component';
 import { SharedModel } from '../Shared/shared.module';
-
+import { PAGES_ROUTES } from './pages.routes';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { SharedModel } from '../Shared/shared.module';
     PagesComponent,
   ],
   imports : [
-    SharedModel
+    SharedModel,
+    PAGES_ROUTES
   ]
 
 })
