@@ -5,6 +5,13 @@ import { ProgressComponent } from './progress/progress.component';
 import { PagesComponent } from './pages.component';
 import { SharedModel } from '../Shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
+import { FormsModule } from '@angular/forms';
+
+
+// temporal
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+
+
 
 
 @NgModule({
@@ -13,6 +20,7 @@ import { PAGES_ROUTES } from './pages.routes';
     ProgressComponent,
     Grafica1Component,
     PagesComponent,
+    IncrementadorComponent
 
   ],
   exports : [
@@ -23,7 +31,8 @@ import { PAGES_ROUTES } from './pages.routes';
   ],
   imports : [
     SharedModel,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    FormsModule
   ]
 
 })

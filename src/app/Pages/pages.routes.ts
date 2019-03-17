@@ -1,19 +1,19 @@
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
-const pagesRoutes:Routes =[
+const pagesRoutes: Routes = [
 
   {
-  	path:'',
-  	component:PagesComponent,
-  	children:[
-        {path:'Dashboard',component:PrincipalComponent},
-        {path:'Progress', component:ProgressComponent},
-        {path:'Grafica',component:Grafica1Component},
-        {path:'',redirectTo:'/Dashboard', pathMatch: 'full'}
-  	]
+    path: '',
+    component: PagesComponent,
+    children: [
+        {path: 'Dashboard', component: PrincipalComponent},
+        {path: 'Progress', component: ProgressComponent},
+        {path: 'Grafica', component: Grafica1Component},
+        {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
+    ]
 
   }
 
