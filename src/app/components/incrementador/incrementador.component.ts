@@ -8,9 +8,9 @@ import { Component, OnInit, Input, Output , EventEmitter, ViewChild, ElementRef 
 export class IncrementadorComponent implements OnInit {
 @ViewChild('txtProgress') txtProgress: ElementRef; // ya tengo una referencia en cualquier modulo
 @Input('nombre') leyenda: string = 'Leyenda';
-@Input() porcentaje: number = 50;
-@Input() porcentajeMax: number = 100;
-@Input() porcentajeMin: number = 0;
+@Input() porcentaje: number;
+@Input() porcentajeMax: number;
+@Input() porcentajeMin: number;
 
 @Output() cambioValor: EventEmitter<number> = new EventEmitter(); 
 // Manera que se hace para emitir un valor con output
@@ -25,11 +25,11 @@ export class IncrementadorComponent implements OnInit {
       return;
     }  
       this.porcentaje = this.porcentaje + 2;
-    this.cambioValor.emit(this.porcentaje);
+    this.cambioValor.emit(this.porcentaje); // envio el valor con Output
     this.txtProgress.nativeElement.focus();
 
   }
-  Decrementar() {
+  Decrementar() { 
     if (this.porcentaje <= this.porcentajeMin) {
       this.porcentaje = 0;
      return;
