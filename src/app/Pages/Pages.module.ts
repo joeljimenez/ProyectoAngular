@@ -17,6 +17,7 @@ import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.co
 
 // temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -29,6 +30,7 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
     PagesComponent,
     IncrementadorComponent,
     GraficaDonaComponent,
+    AccountSettingsComponent,
 
   ],
   exports : [

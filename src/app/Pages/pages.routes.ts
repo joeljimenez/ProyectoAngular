@@ -3,6 +3,7 @@ import { PagesComponent } from './pages.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 const pagesRoutes: Routes = [
 
   {
@@ -12,6 +13,7 @@ const pagesRoutes: Routes = [
         {path: 'Dashboard', component: PrincipalComponent},
         {path: 'Progress', component: ProgressComponent},
         {path: 'Grafica', component: Grafica1Component},
+        {path: 'Account-Settings', component: AccountSettingsComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 
