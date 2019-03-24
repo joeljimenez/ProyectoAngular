@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core'; 
+import { SettingsService } from '../../Service/service.index';
+
 
 @Component({
   selector: 'app-account-settings',
@@ -8,16 +9,18 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private _document) { }
+  constructor( public _ajustes: SettingsService) { 
+ 
+  }
 // hay dos forma para tener referencia de una etiqueta html
   ngOnInit() {
+    this.colocarCheck();
   }
   cambiarColor(color: string , link: any) {
     console.log(link);
-this.AplicarCheck(link);
-    let url = `assets/css/colors/${ color }.css`;
-    this._document.getElementById('tema').setAttribute('href', url);
-
+    this.AplicarCheck(link);
+    this._ajustes.aplicarTema(color);
+ 
   }
 
   AplicarCheck(link: any) {
@@ -26,5 +29,20 @@ this.AplicarCheck(link);
            ref.classList.remove('working');
               link.classList.add('working');
           }
+  }
+
+  colocarCheck() {
+    let selectores: any = document.getElementsByClassName('selector'); 
+
+     let tema = this._ajustes.ajustes.tema;
+
+    for (let ref of selectores) {
+console.log(ref);
+           if ( ref.getAttribute('data-theme') === tema ) { 
+              
+                ref.classList.add('working');
+                break;
+           }
+    }
   }
 }
