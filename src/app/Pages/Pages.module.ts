@@ -18,6 +18,8 @@ import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.co
 // temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-producto.component';
 
 
 
@@ -31,6 +33,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     IncrementadorComponent,
     GraficaDonaComponent,
     AccountSettingsComponent,
+    PerfilUsuarioComponent,
+    CrearProductoComponent,
 
   ],
   exports : [

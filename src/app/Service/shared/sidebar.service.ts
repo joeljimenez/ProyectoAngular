@@ -14,19 +14,29 @@ menu: any = [
          url: '/Dashboard',
          icono: 'fa fa-wrench'
        }
+    ]
+  },
+  {
+    titulo: 'Mantenimiento',
+    icono: 'mdi mdi-pencil',
+    submenu: [
+       {
+         titulo: 'Crear Usuarios',
+         url: '/create_user',
+         icono: 'fa fa-user'
+       }
        ,
        {
-        titulo: 'ProgressBar',
-        url: '/Progress',
-        icono: 'fa fa-minus',
-      }
-      , 
-      {
-        titulo: 'Graficas',
-        url: '/Grafica',
-        icono: 'fa fa-pie-chart',
-      }
+        titulo: 'Crear Productos',
+        url: '/create_productos',
+        icono: 'fa fa-product-hunt',
+      } 
       ,
+      {
+       titulo: 'Crear Categorias',
+       url: '/create_categories',
+       icono: 'fa fa-product-hunt',
+     } 
     ]
   }
 ];

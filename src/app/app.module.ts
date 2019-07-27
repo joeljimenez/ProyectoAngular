@@ -9,13 +9,13 @@ import { APP_ROUTES } from './app.router';
 import { RegistrarComponent } from './login/registrar.component';
 import { PagesModule } from './Pages/Pages.module';
 import { ServicesModule } from './Service/services.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrarComponent,
+    RegistrarComponent, 
 
   ],
   imports: [

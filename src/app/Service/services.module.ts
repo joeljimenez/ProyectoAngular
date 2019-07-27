@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { 
    SettingsService,
    SharedService,
-   SidebarService
+   SidebarService,
+   LoginGuardsGuard
  } from './service.index';
 
 @NgModule({
@@ -15,7 +16,8 @@ import {
   providers: [
     SettingsService,
      SharedService, 
-     SidebarService
+     SidebarService,
+     LoginGuardsGuard
   ],
 })
 export class ServicesModule { }
