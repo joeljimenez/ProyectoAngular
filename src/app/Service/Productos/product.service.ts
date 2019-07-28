@@ -26,6 +26,35 @@ export class ProductService {
         catchError(this.handleError('Login')));
   }
 
+  update_producto(producto: Productos , id) {
+    const url_api = url + `/productos/producto/${id}`;
+    return this.http.put(url_api, producto, httpOptions)
+      .pipe(
+        catchError(this.handleError('Login')));
+  }
+
+
+  get_producto() {
+    const url_api = url + '/productos/all';
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
+  get_producto_id(id) {
+    const url_api = url + `/productos/${id}`;
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
+  delete(id) {
+    const url_api = url + `/productos/delete/${id}`;
+    return this.http.delete(url_api, httpOptions)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // console.error(error);

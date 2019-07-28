@@ -6,7 +6,7 @@ export class Productos {
         public cantidad: number,
         public descripcion:string,
         public estado:number,
-        public categoria:string,
+        public id_categoria:string,
         public img?:string,
 
     ) {

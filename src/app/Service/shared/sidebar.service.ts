@@ -28,7 +28,7 @@ menu: any = [
        ,
        {
         titulo: 'Crear Productos',
-        url: '/create_productos',
+        url: '/index_productos',
         icono: 'fa fa-product-hunt',
       } 
       ,

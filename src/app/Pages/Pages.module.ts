@@ -20,6 +20,7 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-producto.component';
+import { IndexComponent } from './mantenimiento/index/index.component';
 
 
 
@@ -35,6 +36,7 @@ import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-pro
     AccountSettingsComponent,
     PerfilUsuarioComponent,
     CrearProductoComponent,
+    IndexComponent,
 
   ],
   exports : [
