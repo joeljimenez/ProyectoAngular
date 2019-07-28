@@ -5,7 +5,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">{{name}}</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void()"><i class="fa fa-user" aria-hidden="true"></i>Mi Perfil </a></li>
                         <li>
@@ -13,7 +13,7 @@
                                 <i class="fa fa-cogs"></i> Configuración </a>
                         </li>
                         <li>
-                            <a href="javascript:void()">
+                            <a routerLink="/Session" (click)="salir()">
                                 <i class="fa fa-long-arrow-left"></i> Salir
                             </a>
                         </li>

@@ -1,0 +1,37 @@
+
+                   <div class="col-ls-6">
+                    <a [routerLink]="[ '/create_productos']" class="btn btn-dribbble"> <i class="fa fa-plus"></i> Crear Producto</a>
+                  </div>
+                  <br>
+                   <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">PRODUCTOS</h4>
+                          <h6 class="card-subtitle">Lista de productos</h6>
+                          <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
+                              <thead>
+                                  <tr>
+                                    <th>Nombre</th>
+                                    <th>Codigo</th>
+                                    <th>precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of producto">
+                                  <td>{{item.nombre}}</td>
+                                  <td>{{item.codigo}}</td>
+                                  <td>{{item.precio}}</td>
+                                  <td>{{item.cantidad}}</td>
+                                  <td>
+                                    <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Producto"> <i class="fa fa-trash"></i></button>
+                                    <a [routerLink]="[ '/Editar', item._id ]" class="btn btn-outline-success" title="Editar Producto"> <i class="fa fa-pencil"></i></a>
+                                    <a [routerLink]="[ '/AgregarImagen', item._id ]" class="btn btn-outline-primary" title="Subir Imagenes"> <i class="fa fa-plus"></i></a>
+                                  </td>
+                              </tr>
+ 
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+ 
