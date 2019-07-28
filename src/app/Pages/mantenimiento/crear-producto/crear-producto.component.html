@@ -111,3 +111,8 @@
   </div>
  
 </div>
+
+<form #f="ngForm" (ngSubmit)="subir_imagen( f.value )" enctype="multipart/form-data">
+  <input type="file"  [(ngModel)]="imagen" name="file">
+  <button class="btn btn-danger">subir</button>
+</form>

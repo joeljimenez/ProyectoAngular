@@ -12,7 +12,7 @@ export class CrearProductoComponent implements OnInit {
 
   constructor(private _service: ProductService, private _route: Router, private params: ActivatedRoute) {
   }
-
+  public imagen: File;
   public id: string;
   public actulizar = false;
   ngOnInit() {
@@ -118,6 +118,15 @@ export class CrearProductoComponent implements OnInit {
       id_categoria: '',
       img: '',
     }
+  }
+
+
+  subir_imagen(imagen) {
+    this.imagen = imagen;
+    console.log(this.imagen);
+    this._service.update_imagen(this.imagen, this.id).subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

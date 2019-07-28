@@ -33,6 +33,16 @@ export class ProductService {
         catchError(this.handleError('Login')));
   }
 
+  //imagen
+
+  update_imagen(imagen: File , id) {
+    const url_api = url + `/upload/productos/${id}`;
+    return this.http.put(url_api, imagen, httpOptions)
+      .pipe(
+        catchError(this.handleError('Login')));
+  }
+
+
 
   get_producto() {
     const url_api = url + '/productos/all';
