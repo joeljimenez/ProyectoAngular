@@ -15,6 +15,8 @@ export class CreateUserComponent implements OnInit {
     email: '',
     password: '',
     estado: true,
+    direccion: '',
+    edad: 18,
     role: '',
     img: '',
     google: false
@@ -67,25 +69,47 @@ export class CreateUserComponent implements OnInit {
   }
 
   crear_user(usuario: Usuario) {
+if(this.id !=null){
+  this._service.update_user(usuario , this.id).subscribe((data)=>{
+    this.res = data;
+    this.error = this.res.exito;
+    this.exito = this.res.exito;
+    if (this.res.exito) {
 
-    this._service.crear_usuario(usuario).subscribe((data) => {
-      this.res = data;
-      this.exito = this.res.extio;
+      
+      this.mensaje_exito = 'Usuario Actualizado Correctamente';
+      setTimeout(() => {
+        this.mensaje_exito  ="";
+        this.exito = false;
+        this._router.navigate(['/usuarios']);
+        
+      }, 3000);
+    } else {
 
-      if (this.res.exito) {
-        console.log(this.res);
-        this.exito = true;
-        this.mensaje_exito = 'Usuario Creado Correctamente';
-        setTimeout(() => {
-          this._router.navigate(['/usuarios']);
-          this.limpiar();
-        }, 3000);
-      } else {
-        this.error = false;
-        this.mensaje_error = this.res.err.message;
-      }
+      this.mensaje_error = this.res.err.message;
+    }
+  });
+}else{
 
-    });
+  this._service.crear_usuario(usuario).subscribe((data) => {
+    this.res = data;
+    this.exito = this.res.extio;
+
+    if (this.res.exito) {
+      console.log(this.res);
+      this.exito = true;
+      this.mensaje_exito = 'Usuario Creado Correctamente';
+      setTimeout(() => {
+        this._router.navigate(['/usuarios']);
+        this.limpiar();
+      }, 3000);
+    } else {
+      this.error = false;
+      this.mensaje_error = this.res.err.message;
+    }
+
+  });
+}
 
   }
 
@@ -105,6 +129,8 @@ export class CreateUserComponent implements OnInit {
       email: '',
       password: '',
       estado: true,
+      direccion: '',
+      edad: 18,
       role: '',
       img: '',
       google: false

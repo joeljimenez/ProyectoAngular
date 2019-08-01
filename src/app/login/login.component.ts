@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     
     this._service.Login(usuario).subscribe((data) => {
         this.res = data;  
-        console.log(data);
+       
         this.error = this.res.exito;
       if(this.res.exito){
 
@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
 
           this._router.navigate(['/Dashboard']);
         }else{
-          console.log("No tiene permiso para entrar al sistema");
+          this.error = false;
+          this.mensaje_error= 'no tiene permiso para entrar al sistema';
         }
       
       }else{
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
           this.error = true;
         }, 4000);
-        console.log("error al sistema");
+       
 
       }
     });

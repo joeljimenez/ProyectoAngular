@@ -34,7 +34,7 @@ menu: any = [
       ,
       {
        titulo: 'Crear Categorias',
-       url: '/create_categories',
+       url: '/categorias',
        icono: 'fa fa-product-hunt',
      } 
     ]

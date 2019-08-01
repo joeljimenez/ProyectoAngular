@@ -60,6 +60,25 @@
                 </div> 
                 <!--/span-->
               </div>
+
+              <div class="row p-t-20" >
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Dirección</label>
+                      <input [(ngModel)]="usuario.direccion"  name="direccion" type="text" class="form-control" placeholder="Dirección">
+                    </div>
+                  </div>
+ 
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Edad</label>
+                      <input type="number" [(ngModel)]="usuario.edad" name="edad" (change)="validar()" class="form-control" placeholder="Edad ">
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
+
               <!--/row-->
               <div class="row p-t-20" *ngIf="!actualizar">
                   <div class="col-md-6">
@@ -73,7 +92,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="control-label">Confirmar Password</label>
-                      <input type="password" [(ngModel)]="password_validacion" name="password_verificacion" (change)="validar()" class="form-control" placeholder="Correo Electronico ">
+                      <input type="password" [(ngModel)]="password_validacion" name="password_verificacion" (change)="validar()" class="form-control" placeholder="Verificación ">
                     </div>
                   </div>
                   <!--/span-->

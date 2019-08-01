@@ -10,6 +10,8 @@ import { LoginGuardsGuard } from '../Service/service.index';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { IndexUserComponent } from './mantenimiento/index-user/index-user.component';
 import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
+import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
+import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
 
 const pagesRoutes: Routes = [
 
@@ -29,6 +31,9 @@ const pagesRoutes: Routes = [
         {path: 'usuarios', component: IndexUserComponent},
         {path: 'create_user', component: CreateUserComponent},
         {path: 'Editar/Usuario/:id', component: CreateUserComponent},
+        {path: 'categorias', component: IndexCategoriaComponent},
+        {path: 'categorias/:id', component: CreateCategoriaComponent},
+        {path: 'categorias_crear', component: CreateCategoriaComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 

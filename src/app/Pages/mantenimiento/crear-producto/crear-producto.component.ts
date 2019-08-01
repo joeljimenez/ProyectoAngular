@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Productos } from '../../../models/producto.models';
 import { ProductService } from 'src/app/Service/Productos/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CategoriasService } from 'src/app/Service/categoria/categorias.service';
 
 @Component({
   selector: 'app-crear-producto',
@@ -10,7 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CrearProductoComponent implements OnInit {
 
-  constructor(private _service: ProductService, private _route: Router, private params: ActivatedRoute) {
+  constructor(private _service: ProductService, 
+    private _route: Router,
+     private params: ActivatedRoute,
+     private _service_categoria:CategoriasService) {
   }
   public imagenSubir: File;
   public id: string;
@@ -21,6 +25,8 @@ export class CrearProductoComponent implements OnInit {
       this.one_producto();
       this.actualizar = true;
     }
+
+    this.get_all_categoria();
   }
   mensaje_error: string = "";
   error = true;
@@ -40,22 +46,22 @@ export class CrearProductoComponent implements OnInit {
     id_categoria: '',
     img: '',
   }
-  categoria: any = [
-    {
-      id_categoria: 1,
-      categoria: 'Auto'
-    },
-    {
-      id_categoria: 2,
-      categoria: 'Motos'
-    }
-  ];
+  categoria: any = [];
 
   public res: any = {
     exito: '',
     token: '',
     productos: '',
   }
+
+  get_all_categoria() {
+    this._service_categoria.get_categorias().subscribe((data) => {
+      this.res = data;
+      this.categoria = this.res.categories;
+      console.log(this.categoria);
+    });
+  }
+
   guardar(product: Productos) {
     
 
