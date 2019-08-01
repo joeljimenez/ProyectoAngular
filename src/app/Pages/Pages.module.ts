@@ -21,6 +21,10 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-producto.component';
 import { IndexComponent } from './mantenimiento/index/index.component';
+import { IndexUserComponent } from './mantenimiento/index-user/index-user.component';
+import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
+import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
+import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
 
 
 
@@ -37,6 +41,10 @@ import { IndexComponent } from './mantenimiento/index/index.component';
     PerfilUsuarioComponent,
     CrearProductoComponent,
     IndexComponent,
+    IndexUserComponent,
+    CreateUserComponent,
+    IndexCategoriaComponent,
+    CreateCategoriaComponent,
 
   ],
   exports : [

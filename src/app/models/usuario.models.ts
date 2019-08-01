@@ -4,10 +4,10 @@ export class Usuario {
         public email:string,
         public password:string,
         public estado?: true,
-        public rol?:string,
+        public role?:string,
         public img?:string,
         public google?:boolean
-
+ 
     ) {
         
     }

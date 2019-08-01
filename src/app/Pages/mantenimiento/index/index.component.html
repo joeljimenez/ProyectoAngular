@@ -12,6 +12,7 @@
                                   <tr>
                                     <th>Nombre</th>
                                     <th>Codigo</th>
+                                    <th>imagen</th>
                                     <th>precio</th>
                                     <th>Cantidad</th>
                                     <th>Acciones</th>
@@ -21,6 +22,15 @@
                                 <tr *ngFor="let item of producto">
                                   <td>{{item.nombre}}</td>
                                   <td>{{item.codigo}}</td>
+                                  
+                                      <td>
+                                          <img src="http://localhost:3001/public/assets/productos/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                                          <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
+                                          
+                                        </td>
+                                  
+                                  
+                                  
                                   <td>{{item.precio}}</td>
                                   <td>{{item.cantidad}}</td>
                                   <td>

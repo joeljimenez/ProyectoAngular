@@ -12,14 +12,14 @@ export class CrearProductoComponent implements OnInit {
 
   constructor(private _service: ProductService, private _route: Router, private params: ActivatedRoute) {
   }
-  public imagen: File;
+  public imagenSubir: File;
   public id: string;
-  public actulizar = false;
+  public actualizar = false;
   ngOnInit() {
     this.id = this.params.snapshot.paramMap.get('id');
     if (this.id != null) {
       this.one_producto();
-      this.actulizar = true;
+      this.actualizar = true;
     }
   }
   mensaje_error: string = "";
@@ -27,7 +27,8 @@ export class CrearProductoComponent implements OnInit {
 
   mensaje_exito: string = "";
   exito = false;
-
+  imagenTemp: any;
+  habilitar =true;
 
   productos: Productos = {
     nombre: '',
@@ -56,9 +57,9 @@ export class CrearProductoComponent implements OnInit {
     productos: '',
   }
   guardar(product: Productos) {
-    console.log(this.productos);
+    
 
-    if (!this.actulizar) {
+    if (!this.actualizar) {
       this._service.crear_producto(product).subscribe((data) => {
         this.res = data;
         this.error = this.res.exito;
@@ -101,8 +102,7 @@ export class CrearProductoComponent implements OnInit {
   one_producto() {
     this._service.get_producto_id(this.id).subscribe((data) => {
       this.res = data;
-      console.log(this.res);
-      this.productos = this.res.productosDB;
+       this.productos = this.res.productosDB;
 
     });
   }
@@ -120,13 +120,29 @@ export class CrearProductoComponent implements OnInit {
     }
   }
 
+  seleccionImage(archivo: File){
+    if ( !archivo ) {
+      this.imagenSubir = null;
+      return;
+    }
+    this.habilitar =false;
+    this.imagenSubir = archivo;
+ 
 
-  subir_imagen(imagen) {
-    this.imagen = imagen;
-    console.log(this.imagen);
-    this._service.update_imagen(this.imagen, this.id).subscribe((data) => {
-      console.log(data);
-    });
+
+    const reader = new FileReader();
+    reader.onload = e => this.imagenTemp = reader.result;
+
+    reader.readAsDataURL(archivo);
+
   }
+  subir_imagen() {
+ 
+     this._service.update_imagen(this.imagenSubir, this.id);
+   
+    
+  }
+
+  
 
 }

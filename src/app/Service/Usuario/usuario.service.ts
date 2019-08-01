@@ -4,72 +4,101 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { url } from '../../URL/URL';
 import { Router } from '@angular/router';
-import { Productos } from 'src/app/models/producto.models';
+import { Usuario } from 'src/app/models/usuario.models';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
      'token': localStorage.getItem('token')
   })
 };
-
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-mensaje:String;
+export class UsuarioService {
+
   constructor(private http: HttpClient , private ruta:Router) { }
-
-  crear_producto(producto: Productos) {
-    const url_api = url + '/productos/create';
-    return this.http.post(url_api, producto, httpOptions)
+  
+  //traer todo
+  get_all_user(desde:any) {
+    const url_api = url + `/allUser?desde=${desde}`;
+    return this.http.get(url_api)
       .pipe(
-        catchError(this.handleError('Login')));
+        catchError(this.handleError('Usuario')));
   }
-
-  update_producto(producto: Productos , id) {
-    const url_api = url + `/productos/producto/${id}`;
-    return this.http.put(url_api, producto, httpOptions)
-      .pipe(
-        catchError(this.handleError('Login')));
-  }
-
-  //imagen
-
-  update_imagen(imagen: File , id) {
-    const url_api = url + `/upload/productos/${id}`;
-    this.subirArchivo(imagen , 'productos',id)          
-    .then( (resp: any) => {
 
  
-        this.ruta.navigate(['/index_productos']);
-      
-      
-    })
+
+
+
+  //traer un usuario
+  get_one_usuario(id) {
+     const url_api = url + `/user/${id}`;
+     return this.http.get(url_api)
+       .pipe(
+         catchError(this.handleError('Usuario')));
+   }
+
+   // actualizar usuario
+   update_user(usuario: Usuario , id) {
+     const url_api = url + `/user/updateUser/${id}`;
+     return this.http.put(url_api, usuario, httpOptions)
+       .pipe(
+         catchError(this.handleError('Login')));
+   }
+
+
+
+   crear_usuario(usuario: Usuario) {
+    const url_api = url + '/user/createUser';
+    return this.http.post(url_api, usuario, httpOptions)
+      .pipe(
+        catchError(this.handleError('Login')));
+  }
+
+
+  //Perfil
+
+  update_imagen(imagen: File , id) {
+    
+    this.subirArchivo(imagen , 'usuarios',id)          
+    .then( (resp: any) => {
+
+  this.ruta.navigate(['/Perfil_usuario']);
+     })
     .catch( resp => {
-      console.log(resp);
-      if(resp.err.causa == 'token'){
-        this.ruta.navigate(['/Session']);
-        localStorage.removeItem('token');
-      }
+      console.log( resp );
     }) ;
  
   }
- get_producto() {
-    const url_api = url + '/productos/all';
-    return this.http.get(url_api)
-      .pipe(
-        catchError(this.handleError('productos')));
-  }
 
-  get_producto_id(id) {
-    const url_api = url + `/productos/${id}`;
+
+    //imagen
+
+    update_imagen_user(imagen: File , id) {
+    
+      this.subirArchivo(imagen , 'usuarios',id)          
+      .then( (resp: any) => {
+  
+    this.ruta.navigate(['/usuarios']);
+       })
+      .catch( resp => {
+        console.log( resp );
+      }) ;
+   
+    }
+
+
+  get_usuario_id(id) {
+    const url_api = url + `/user/${id}`;
     return this.http.get(url_api)
       .pipe(
         catchError(this.handleError('productos')));
   }
 
   delete(id) {
-    const url_api = url + `/productos/delete/${id}`;
+    const url_api = url + `/user/delete/${id}`;
+    console.log(url_api);
     return this.http.delete(url_api, httpOptions)
       .pipe(
         catchError(this.handleError('productos')));
@@ -123,6 +152,8 @@ mensaje:String;
 
     });
 
+
+
+
   }
-  
 }

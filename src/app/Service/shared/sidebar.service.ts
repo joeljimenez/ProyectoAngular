@@ -22,7 +22,7 @@ menu: any = [
     submenu: [
        {
          titulo: 'Crear Usuarios',
-         url: '/create_user',
+         url: '/usuarios',
          icono: 'fa fa-user'
        }
        ,

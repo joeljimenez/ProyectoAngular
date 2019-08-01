@@ -7,6 +7,10 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { IndexComponent } from './mantenimiento/index/index.component';
 import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-producto.component'
 import { LoginGuardsGuard } from '../Service/service.index';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { IndexUserComponent } from './mantenimiento/index-user/index-user.component';
+import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
+
 const pagesRoutes: Routes = [
 
   {
@@ -20,7 +24,11 @@ const pagesRoutes: Routes = [
         {path: 'Account-Settings', component: AccountSettingsComponent},
         {path: 'index_productos', component: IndexComponent},
         {path: 'create_productos', component: CrearProductoComponent},
+        {path: 'Perfil_usuario', component: PerfilUsuarioComponent},
         {path: 'Editar/:id', component: CrearProductoComponent},
+        {path: 'usuarios', component: IndexUserComponent},
+        {path: 'create_user', component: CreateUserComponent},
+        {path: 'Editar/Usuario/:id', component: CreateUserComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 

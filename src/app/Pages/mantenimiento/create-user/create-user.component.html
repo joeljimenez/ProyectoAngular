@@ -5,10 +5,10 @@
       <br>
       <div class="card">
         <div class="card-header bg-inverse">
-          <h4 class="m-b-0 text-white">Mi Perfil</h4>
+          <h4 class="m-b-0 text-white">Crear Nuevo Usuarios</h4>
         </div>
         <div class="card-body">
-          <form #f="ngForm" (ngSubmit)="update_user( f.value )">
+          <form #f="ngForm" (ngSubmit)="crear_user( f.value )">
             <div class="form-body">
   
               <hr>
@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label">Correo Electronico</label>
-                    <input type="text" [(ngModel)]="usuario.email" name="codigo"  class="form-control" placeholder="Correo Electronico ">
+                    <input type="email" [(ngModel)]="usuario.email" name="email"  class="form-control" placeholder="Correo Electronico ">
                   </div>
                 </div>
                 <!--/span-->
@@ -34,9 +34,9 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="control-label">Roles</label>
-                    <select class="form-control" [(ngModel)]="usuario.role" name="id_categoria" > 
-                      <option [value]="0" selected>Seleccione Categoria</option>
-                      <option *ngFor="let item of rol" [value]="item.nombre">{{item.nombre}}</option> 
+                    <select class="form-control" [(ngModel)]="usuario.role" name="rol" > 
+                      <option [value]="0" selected>Seleccione Rol</option>
+                      <option *ngFor="let item of role" [value]="item.nombre">{{item.nombre}}</option> 
                     </select>
                   </div>
                 </div>  
@@ -61,6 +61,23 @@
                 <!--/span-->
               </div>
               <!--/row-->
+              <div class="row p-t-20" *ngIf="!actualizar">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Password</label>
+                      <input [(ngModel)]="usuario.password"  name="password" type="password" class="form-control" placeholder="Nombre">
+                    </div>
+                  </div>
+ 
+                  <!--/span-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Confirmar Password</label>
+                      <input type="password" [(ngModel)]="password_validacion" name="password_verificacion" (change)="validar()" class="form-control" placeholder="Correo Electronico ">
+                    </div>
+                  </div>
+                  <!--/span-->
+                </div>
            
   
               <div class="alert alert-danger" *ngIf="!error">
@@ -72,7 +89,7 @@
   
             </div>
             <div class="form-actions" *ngIf="!actualizar">
-              <button type="submit" class="btn btn-success btn-block" [disabled]="exito"> <i class="fa fa-check"></i> Guardar</button>
+              <button type="submit" class="btn btn-success btn-block" [disabled]="guardar"> <i class="fa fa-check"></i> Guardar</button>
             </div>
   
             <div class="form-actions" *ngIf="actualizar">
@@ -104,7 +121,7 @@
      
              <br>
     
-           <button class="btn btn-danger" (click)="subir_imagen()" [disabled]="habilitar">subir</button>
+           <button class="btn btn-danger" (click)="actualizar_imagen()" [disabled]="habilitar">subir</button>
              
            </div>
          </div>
