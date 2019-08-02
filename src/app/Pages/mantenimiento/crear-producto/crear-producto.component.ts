@@ -33,6 +33,10 @@ export class CrearProductoComponent implements OnInit {
 
   mensaje_exito: string = "";
   exito = false;
+
+  mensaje_subida :string;
+  exito_subida = false;
+  
   imagenTemp: any;
   habilitar =true;
 
@@ -145,6 +149,38 @@ export class CrearProductoComponent implements OnInit {
   subir_imagen() {
  
      this._service.update_imagen(this.imagenSubir, this.id);
+   
+    
+  }
+
+
+  seleccionImageMasiva(archivo: File){
+    console.log(archivo);
+    if ( !archivo ) {
+      this.imagenSubir = null;
+      return;
+    }
+    
+    this.imagenSubir = archivo;
+
+  
+
+  }
+  subir_imagenMasiva() {
+ 
+     this._service.subirArchivoMasivo(this.imagenSubir,'productosMasivo', this.id) 
+     .then((resp: any) => {
+      this.mensaje_subida = resp.message;
+      this.exito_subida = resp.extio;
+        setTimeout(() => {
+          this.exito_subida = false;
+        }, 3000);
+      
+ })
+    .catch(resp => {
+      console.log(resp);
+       
+    });
    
     
   }

@@ -25,6 +25,7 @@ import { IndexUserComponent } from './mantenimiento/index-user/index-user.compon
 import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
 import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
 import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
+import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
 
 
 
@@ -45,6 +46,7 @@ import { CreateCategoriaComponent } from './mantenimiento/create-categoria/creat
     CreateUserComponent,
     IndexCategoriaComponent,
     CreateCategoriaComponent,
+    ShowFotosComponent,
 
   ],
   exports : [

@@ -3,3 +3,8 @@
 #themecolors a {
     cursor: pointer;
 }
+
+img.img-responsive.img-thumbnail.img {
+    object-fit: cover;
+    height: 35vh;
+}

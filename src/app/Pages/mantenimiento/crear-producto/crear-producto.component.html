@@ -116,7 +116,7 @@
 
 <div class="card" *ngIf="actualizar">
   <div class="card-header bg-inverse">
-    <h4 class="m-b-0 text-white">Subir Imagen</h4>
+    <h4 class="m-b-0 text-white">Subir Imagen Principal</h4>
   </div>
   <div class="card-body">
     
@@ -139,6 +139,34 @@
    </div>
   </div>
 </div>
+<hr>
+<div class="card" *ngIf="actualizar">
+    <div class="card-header bg-inverse">
+      <h4 class="m-b-0 text-white">Varias Imagenes</h4>
+    </div>
+    <div class="card-body">
+      
+     <div class="col-lg-12">
+       <div class="row">
+   
+         <div class="col-lg-6">
+           <input type="file"  (change)="seleccionImageMasiva($event.target.files)" multiple>
+           <br>
+           <br>
+           <div class="alert alert-success" *ngIf="exito_subida">
+              {{mensaje_subida}}
+        </div>
+           <br>
+           <br>
+  
+         <button class="btn btn-danger" (click)="subir_imagenMasiva()">subir</button>
+           
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+  <br>
 
  
  

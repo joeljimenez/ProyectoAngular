@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js'; 
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/Service/Productos/product.service';
+
 
 
 
@@ -38,14 +41,23 @@ export class Grafica1Component implements OnInit {
       'leyenda': '¿Le importa que le den gases?'
     },
   };
- 
-  constructor() { 
+  imagenSubir: File;
+  imagenTemp: string | ArrayBuffer;
+ id:string;
+  constructor( private _params: ActivatedRoute , private _service: ProductService) { 
   // tranforma en objeti en una array de objetos
   let grafo = Object.values(this.graficos);
   this.graficos_Array = grafo;
+  this.id = _params.snapshot.paramMap.get('id');
+
+
   }
 
   ngOnInit() {
   }
+
+
+
+  
  
 }

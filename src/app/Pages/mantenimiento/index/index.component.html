@@ -36,7 +36,7 @@
                                   <td>
                                     <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Producto"> <i class="fa fa-trash"></i></button>
                                     <a [routerLink]="[ '/Editar', item._id ]" class="btn btn-outline-success" title="Editar Producto"> <i class="fa fa-pencil"></i></a>
-                                    <a [routerLink]="[ '/AgregarImagen', item._id ]" class="btn btn-outline-primary" title="Subir Imagenes"> <i class="fa fa-plus"></i></a>
+                                    <a [routerLink]="[ '/ver_fotos', item._id ]" class="btn btn-outline-primary" title="Subir Imagenes"> <i class="fa fa-eye"></i></a>
                                   </td>
                               </tr>
  
