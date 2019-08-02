@@ -12,6 +12,7 @@ import { IndexUserComponent } from './mantenimiento/index-user/index-user.compon
 import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
 import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
 import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
+import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
 
 const pagesRoutes: Routes = [
 
@@ -22,7 +23,7 @@ const pagesRoutes: Routes = [
     children: [
         {path: 'Dashboard', component: PrincipalComponent},
         {path: 'Progress', component: ProgressComponent},
-        {path: 'Grafica', component: Grafica1Component},
+        {path: 'Grafica/:id', component: Grafica1Component},
         {path: 'Account-Settings', component: AccountSettingsComponent},
         {path: 'index_productos', component: IndexComponent},
         {path: 'create_productos', component: CrearProductoComponent},
@@ -33,7 +34,8 @@ const pagesRoutes: Routes = [
         {path: 'Editar/Usuario/:id', component: CreateUserComponent},
         {path: 'categorias', component: IndexCategoriaComponent},
         {path: 'categorias/:id', component: CreateCategoriaComponent},
-        {path: 'categorias_crear', component: CreateCategoriaComponent},
+        {path: 'categorias_crear', component: CreateCategoriaComponent}, 
+        {path: 'ver_fotos/:id', component: ShowFotosComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 
