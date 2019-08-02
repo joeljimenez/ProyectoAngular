@@ -3,9 +3,7 @@ import { CommonModule} from '@angular/common';
 
 
 import { Grafica1Component } from './grafica1/grafica1.component';
-import { PrincipalComponent } from './principal/principal.component';
-
-import { ProgressComponent } from './progress/progress.component';
+import { PrincipalComponent } from './principal/principal.component'; 
 import { PagesComponent } from './pages.component';
 import { SharedModel } from '../Shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
@@ -32,8 +30,7 @@ import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.compon
 
 @NgModule({
   declarations : [
-    PrincipalComponent ,
-    ProgressComponent,
+    PrincipalComponent , 
     Grafica1Component,
     PagesComponent,
     IncrementadorComponent,
@@ -50,8 +47,7 @@ import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.compon
 
   ],
   exports : [
-    PrincipalComponent,
-    ProgressComponent,
+    PrincipalComponent, 
     Grafica1Component,
     PagesComponent,
   ],
