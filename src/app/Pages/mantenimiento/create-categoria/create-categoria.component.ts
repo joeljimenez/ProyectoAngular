@@ -19,6 +19,7 @@ export class CreateCategoriaComponent implements OnInit {
     nombre: '',
     descripcion: '',
     estado: true,
+    img: ''
   }
   mensaje_error: string = "";
   error = true;
@@ -28,12 +29,15 @@ export class CreateCategoriaComponent implements OnInit {
 
   public actualizar = false;
   id:string;
+  imagenSubir:File;
+  imagenTemp:any;
   constructor(private _service: CategoriasService ,
      private _router:Router ,
       private _param :ActivatedRoute) {
         this.id= _param.snapshot.paramMap.get('id');
         if (this.id != null) {
           this.one_categoria();
+          this.actualizar  =true;
          
         }
        }
@@ -83,6 +87,7 @@ export class CreateCategoriaComponent implements OnInit {
       nombre: '',
       descripcion: '',
       estado: true,
+      img: ''
     }
   }
 
@@ -93,5 +98,30 @@ this.categoria = this.res.categories;
  
     });
   }
+
+
+  seleccionImage(archivo: File){
+    if ( !archivo ) {
+      this.imagenSubir = null;
+      return;
+    }
+    
+    this.imagenSubir = archivo;
+ 
+
+
+    const reader = new FileReader();
+    reader.onload = e => this.imagenTemp = reader.result;
+
+    reader.readAsDataURL(archivo);
+
+  }
+  subir_imagen() {
+ 
+      this._service.update_imagen(this.imagenSubir, this.id);
+   
+    
+  }
+
 
 }

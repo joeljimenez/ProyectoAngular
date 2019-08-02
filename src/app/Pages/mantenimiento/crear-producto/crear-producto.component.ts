@@ -55,7 +55,7 @@ export class CrearProductoComponent implements OnInit {
   public res: any = {
     exito: '',
     token: '',
-    productos: '',
+  
   }
 
   get_all_categoria() {

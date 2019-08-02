@@ -36,6 +36,11 @@ menu: any = [
        titulo: 'Crear Categorias',
        url: '/categorias',
        icono: 'fa fa-product-hunt',
+     },
+     {
+       titulo: 'Crear Autos',
+       url: '/autos',
+       icono : ' fa fa-product-hunt'
      } 
     ]
   }

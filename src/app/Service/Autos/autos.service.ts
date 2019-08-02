@@ -17,18 +17,19 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasService {
+export class AutosService {
 
+  
   constructor(private http: HttpClient , private ruta:Router) { }
 
-  get_categorias() {
-    const url_api = url + '/categories/all';
+  get_autos() {
+    const url_api = url + '/autos/all';
     return this.http.get(url_api)
       .pipe(
         catchError(this.handleError('productos')));
   }
 
-  get_categoria_id(id) {
+  get_auto_id(id) {
     const url_api = url + `/categories/${id}`;
     return this.http.get(url_api)
       .pipe(
@@ -36,14 +37,14 @@ export class CategoriasService {
   }
 
 
-  crear_categoria(categoria: Categoria) {
+  create_autos(categoria: Categoria) {
     const url_api = url + '/categories/create';
     return this.http.post(url_api, categoria, httpOptions)
       .pipe(
         catchError(this.handleError('Login')));
   }
 
-  update_Categoria(producto: Categoria , id) {
+  update_auto(producto: Categoria , id) {
     const url_api = url + `/categories/update/${id}`;
     return this.http.put(url_api, producto, httpOptions)
       .pipe(
@@ -51,7 +52,7 @@ export class CategoriasService {
   }
 
 
-  delete(id) {
+  delete_auto(id) {
     const url_api = url + `/categories/delete/${id}`;
     return this.http.delete(url_api, httpOptions)
       .pipe(
@@ -67,62 +68,6 @@ export class CategoriasService {
   }
   private log(message: string) {
     console.log(message);
-  }
-  update_imagen(imagen: File, id) {
-    
-    this.subirArchivo(imagen, 'categoria', id)
-      .then((resp: any) => {
-
-
-        this.ruta.navigate(['/index_productos']);
-
-
-      })
-      .catch(resp => {
-        console.log(resp);
-        if (resp.err.causa == 'token') {
-          this.ruta.navigate(['/Session']);
-          localStorage.removeItem('token');
-        }
-      });
-
-  }
-
-  subirArchivo(archivo: File, tipo: string, id: string) {
-
-    return new Promise((resolve, reject) => {
-
-      let formData = new FormData();
-      let xhr = new XMLHttpRequest();
-      formData.append('archivo', archivo, archivo.name);
-      console.log(formData);
-      xhr.onreadystatechange = function () {
-
-        if (xhr.readyState === 4) {
-
-          if (xhr.status === 200) {
-            console.log('Imagen subida');
-
-            resolve(JSON.parse(xhr.response));
-          } else {
-            console.log('Fallo la subida');
-            reject(xhr.response);
-          }
-
-        }
-      };
-
-      let url_serrvicio = url + '/upload/' + tipo + '/' + id;
-
-
-      xhr.open('PUT', url_serrvicio, true);
-      // xhr.setRequestHeader("Content-Type", 'application/json');
-      xhr.setRequestHeader("token", localStorage.getItem('token'));
-
-      xhr.send(formData);
-
-    });
-
   }
 
 }

@@ -12,6 +12,8 @@ import { CreateUserComponent } from './mantenimiento/create-user/create-user.com
 import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
 import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
 import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
+import { AutosComponent } from './mantenimiento/autos/autos.component';
+import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.component';
 
 const pagesRoutes: Routes = [
 
@@ -34,6 +36,9 @@ const pagesRoutes: Routes = [
         {path: 'categorias/:id', component: CreateCategoriaComponent},
         {path: 'categorias_crear', component: CreateCategoriaComponent}, 
         {path: 'ver_fotos/:id', component: ShowFotosComponent},
+        {path: 'autos', component: IndexAutosComponent},
+        {path: 'autos/ver/:id', component: AutosComponent},
+        {path: 'crear_autos', component: AutosComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 

@@ -11,6 +11,7 @@
                                     <tr>
                                       <th>Nombre</th>
                                       <th>Descripción</th>
+                                      <th>Imagen</th>
                                       <th>Estado</th> 
                                       <th>Acciones</th>
                                     </tr>
@@ -19,6 +20,11 @@
                                   <tr *ngFor="let item of categoria">
                                     <td>{{item.nombre}}</td>
                                     <td>{{item.descripcion}}</td>
+                                    <td>
+                                        <img src="http://localhost:3001/public/assets/categoria/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                                        <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
+                                        
+                                      </td>
                                     
                                         <td>
                                           <span *ngIf="item.estado" class="badge badge-success">Activo</span>

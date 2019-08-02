@@ -24,6 +24,8 @@ import { CreateUserComponent } from './mantenimiento/create-user/create-user.com
 import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
 import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
 import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
+import { AutosComponent } from './mantenimiento/autos/autos.component';
+import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.component';
 
 
 
@@ -44,6 +46,8 @@ import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.compon
     IndexCategoriaComponent,
     CreateCategoriaComponent,
     ShowFotosComponent,
+    AutosComponent,
+    IndexAutosComponent,
 
   ],
   exports : [
