@@ -19,7 +19,8 @@ export class CreateCategoriaComponent implements OnInit {
     nombre: '',
     descripcion: '',
     estado: true,
-    img: ''
+    img: '',
+    slug :''
   }
   mensaje_error: string = "";
   error = true;
@@ -87,7 +88,8 @@ export class CreateCategoriaComponent implements OnInit {
       nombre: '',
       descripcion: '',
       estado: true,
-      img: ''
+      img: '',
+      slug:''
     }
   }
 

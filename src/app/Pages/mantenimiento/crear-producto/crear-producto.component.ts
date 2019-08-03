@@ -3,6 +3,7 @@ import { Productos } from '../../../models/producto.models';
 import { ProductService } from 'src/app/Service/Productos/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoriasService } from 'src/app/Service/categoria/categorias.service';
+import { AutosService } from 'src/app/Service/service.index';
 
 @Component({
   selector: 'app-crear-producto',
@@ -11,10 +12,11 @@ import { CategoriasService } from 'src/app/Service/categoria/categorias.service'
 })
 export class CrearProductoComponent implements OnInit {
 
-  constructor(private _service: ProductService, 
+  constructor(private _service: ProductService,
     private _route: Router,
-     private params: ActivatedRoute,
-     private _service_categoria:CategoriasService) {
+    private params: ActivatedRoute,
+    private _service_categoria: CategoriasService,
+    private _service_auto: AutosService) {
   }
   public imagenSubir: File;
   public id: string;
@@ -27,6 +29,7 @@ export class CrearProductoComponent implements OnInit {
     }
 
     this.get_all_categoria();
+    this.get_all_autos();
   }
   mensaje_error: string = "";
   error = true;
@@ -34,11 +37,11 @@ export class CrearProductoComponent implements OnInit {
   mensaje_exito: string = "";
   exito = false;
 
-  mensaje_subida :string;
+  mensaje_subida: string;
   exito_subida = false;
-  
+
   imagenTemp: any;
-  habilitar =true;
+  habilitar = true;
 
   productos: Productos = {
     nombre: '',
@@ -49,13 +52,21 @@ export class CrearProductoComponent implements OnInit {
     estado: 1,
     id_categoria: '',
     img: '',
+    id_auto: ''
   }
   categoria: any = [];
-
+  autos: any = [];
   public res: any = {
     exito: '',
     token: '',
-  
+
+  }
+
+  public res_auto: any = {
+    exito: '',
+    token: '',
+    autos:'',
+
   }
 
   get_all_categoria() {
@@ -66,8 +77,17 @@ export class CrearProductoComponent implements OnInit {
     });
   }
 
+  get_all_autos() {
+    this._service_auto.get_autos().subscribe((data) => {
+      console.log(data);
+      this.res_auto = data;
+      this.autos = this.res_auto.autos;
+      console.log(this.autos);
+    })
+  }
+
   guardar(product: Productos) {
-    
+
 
     if (!this.actualizar) {
       this._service.crear_producto(product).subscribe((data) => {
@@ -112,7 +132,8 @@ export class CrearProductoComponent implements OnInit {
   one_producto() {
     this._service.get_producto_id(this.id).subscribe((data) => {
       this.res = data;
-       this.productos = this.res.productosDB;
+      this.productos = this.res.productosDB;
+      console.log(this.productos);
 
     });
   }
@@ -127,17 +148,18 @@ export class CrearProductoComponent implements OnInit {
       estado: 1,
       id_categoria: '',
       img: '',
+      id_auto: ''
     }
   }
 
-  seleccionImage(archivo: File){
-    if ( !archivo ) {
+  seleccionImage(archivo: File) {
+    if (!archivo) {
       this.imagenSubir = null;
       return;
     }
-    this.habilitar =false;
+    this.habilitar = false;
     this.imagenSubir = archivo;
- 
+
 
 
     const reader = new FileReader();
@@ -147,44 +169,39 @@ export class CrearProductoComponent implements OnInit {
 
   }
   subir_imagen() {
- 
-     this._service.update_imagen(this.imagenSubir, this.id);
-   
-    
+
+    this._service.update_imagen(this.imagenSubir, this.id);
   }
 
 
-  seleccionImageMasiva(archivo: File){
+  seleccionImageMasiva(archivo: File) {
     console.log(archivo);
-    if ( !archivo ) {
+    if (!archivo) {
       this.imagenSubir = null;
       return;
     }
-    
+
     this.imagenSubir = archivo;
-
-  
-
   }
   subir_imagenMasiva() {
- 
-     this._service.subirArchivoMasivo(this.imagenSubir,'productosMasivo', this.id) 
-     .then((resp: any) => {
-      this.mensaje_subida = resp.message;
-      this.exito_subida = resp.extio;
+
+    this._service.subirArchivoMasivo(this.imagenSubir, 'productosMasivo', this.id)
+      .then((resp: any) => {
+        this.mensaje_subida = resp.message;
+        this.exito_subida = resp.extio;
         setTimeout(() => {
           this.exito_subida = false;
         }, 3000);
-      
- })
-    .catch(resp => {
-      console.log(resp);
-       
-    });
-   
-    
+
+      })
+      .catch(resp => {
+        console.log(resp);
+
+      });
+
+
   }
 
-  
+
 
 }
