@@ -55,10 +55,21 @@
                   <label class="control-label">Categoria</label>
                   <select class="form-control" [(ngModel)]="productos.id_categoria" name="id_categoria" > 
                     <option [value]="0" selected>Seleccione Categoria</option>
-                    <option *ngFor="let item of categoria" [value]="item.id_categoria">{{item.categoria}}</option> 
+                    <option *ngFor="let item of categoria" [value]="item._id">{{item.nombre}}</option> 
                   </select>
                 </div>
               </div>  
+
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label">Autos</label>
+                    <select class="form-control" [(ngModel)]="productos.id_auto" name="id_auto" > 
+                      <option [value]="0" selected>Seleccione Categoria</option>
+                      <option *ngFor="let item of autos" [value]="item._id">{{item.marca}}</option> 
+                    </select>
+                  </div>
+                </div>  
+
               <!--/span-->
             <div class="col-md-6">
                 <div class="form-group">
@@ -112,7 +123,61 @@
  
 </div>
 
-<form #f="ngForm" (ngSubmit)="subir_imagen( f.value )" enctype="multipart/form-data">
-  <input type="file"  [(ngModel)]="imagen" name="file">
-  <button class="btn btn-danger">subir</button>
-</form>
+ 
+
+<div class="card" *ngIf="actualizar">
+  <div class="card-header bg-inverse">
+    <h4 class="m-b-0 text-white">Subir Imagen Principal</h4>
+  </div>
+  <div class="card-body">
+    
+   <div class="col-lg-12">
+     <div class="row">
+       <div class="col-lg-6">
+      <img *ngIf="!imagenTemp" src="http://localhost:3001/public/assets/productos/{{productos.img}}" class="img-responsive img-thumbnail" style="width: 50vh">
+      <img *ngIf="imagenTemp" [src]="imagenTemp" class="img-responsive img-thumbnail" style="width: 50vh">
+       </div>
+       <div class="col-lg-6">
+         <input type="file"  (change)="seleccionImage($event.target.files[0])">
+         <br>
+ 
+         <br>
+
+       <button class="btn btn-danger" (click)="subir_imagen()" [disabled]="habilitar">subir</button>
+         
+       </div>
+     </div>
+   </div>
+  </div>
+</div>
+<hr>
+<div class="card" *ngIf="actualizar">
+    <div class="card-header bg-inverse">
+      <h4 class="m-b-0 text-white">Varias Imagenes</h4>
+    </div>
+    <div class="card-body">
+      
+     <div class="col-lg-12">
+       <div class="row">
+   
+         <div class="col-lg-6">
+           <input type="file"  (change)="seleccionImageMasiva($event.target.files)" multiple>
+           <br>
+           <br>
+           <div class="alert alert-success" *ngIf="exito_subida">
+              {{mensaje_subida}}
+        </div>
+           <br>
+           <br>
+  
+         <button class="btn btn-danger" (click)="subir_imagenMasiva()">subir</button>
+           
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+  <br>
+
+ 
+ 

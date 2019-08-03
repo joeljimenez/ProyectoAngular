@@ -8,7 +8,7 @@ import { Productos } from 'src/app/models/producto.models';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-     'token': localStorage.getItem('token')
+    'token': localStorage.getItem('token')
   })
 };
 
@@ -16,8 +16,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProductService {
-
-  constructor(private http: HttpClient) { }
+  mensaje: String;
+  constructor(private http: HttpClient, private ruta: Router) { }
 
   crear_producto(producto: Productos) {
     const url_api = url + '/productos/create';
@@ -26,7 +26,7 @@ export class ProductService {
         catchError(this.handleError('Login')));
   }
 
-  update_producto(producto: Productos , id) {
+  update_producto(producto: Productos, id) {
     const url_api = url + `/productos/producto/${id}`;
     return this.http.put(url_api, producto, httpOptions)
       .pipe(
@@ -35,15 +35,25 @@ export class ProductService {
 
   //imagen
 
-  update_imagen(imagen: File , id) {
+  update_imagen(imagen: File, id) {
     const url_api = url + `/upload/productos/${id}`;
-    return this.http.put(url_api, imagen, httpOptions)
-      .pipe(
-        catchError(this.handleError('Login')));
+    this.subirArchivo(imagen, 'productos', id)
+      .then((resp: any) => {
+
+
+        this.ruta.navigate(['/index_productos']);
+
+
+      })
+      .catch(resp => {
+        console.log(resp);
+        if (resp.err.causa == 'token') {
+          this.ruta.navigate(['/Session']);
+          localStorage.removeItem('token');
+        }
+      });
+
   }
-
-
-
   get_producto() {
     const url_api = url + '/productos/all';
     return this.http.get(url_api)
@@ -74,5 +84,107 @@ export class ProductService {
   }
   private log(message: string) {
     console.log(message);
+  }
+
+
+
+  get_imagen_id(id) {
+    const url_api = url + `/productos/showImagen/${id}`;
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
+
+  delete_imagen(id) {
+    const url_api = url + `/imagen/delete/${id}`;
+    return this.http.delete(url_api, httpOptions)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
+
+
+  // subir imagen
+  subirArchivo(archivo: File, tipo: string, id: string) {
+
+    return new Promise((resolve, reject) => {
+
+      let formData = new FormData();
+      let xhr = new XMLHttpRequest();
+      formData.append('archivo', archivo, archivo.name);
+      console.log(formData);
+      xhr.onreadystatechange = function () {
+
+        if (xhr.readyState === 4) {
+
+          if (xhr.status === 200) {
+            console.log('Imagen subida');
+
+            resolve(JSON.parse(xhr.response));
+          } else {
+            console.log('Fallo la subida');
+            reject(xhr.response);
+          }
+
+        }
+      };
+
+      let url_serrvicio = url + '/upload/' + tipo + '/' + id;
+
+
+      xhr.open('PUT', url_serrvicio, true);
+      // xhr.setRequestHeader("Content-Type", 'application/json');
+      xhr.setRequestHeader("token", localStorage.getItem('token'));
+
+      xhr.send(formData);
+
+    });
+
+  }
+
+
+
+  /*===========================================================
+  =========================================================== */
+  subirArchivoMasivo(archivo: any, tipo: string, id: string) {
+       
+      
+     
+    return new Promise((resolve, reject) => {
+
+      let formData = new FormData();
+      let xhr = new XMLHttpRequest();
+      for (let index = 0; index < archivo.length; index++) {
+      
+        formData.append('archivo',  archivo[index]);
+      }
+     
+      xhr.onreadystatechange = function () {
+
+        if (xhr.readyState === 4) {
+
+          if (xhr.status === 200) {
+            console.log('Imagen subida');
+            resolve(JSON.parse(xhr.response));
+          } else {
+            console.log('Fallo la subida');
+            reject(xhr.response);
+          }
+
+        }
+      };
+
+      let url_serrvicio = url + '/uploadMasiva/' + id;
+
+      console.log(url_serrvicio);
+      xhr.open('POST', url_serrvicio, true);
+      // xhr.setRequestHeader("Content-Type", 'application/json');
+      xhr.setRequestHeader("token", localStorage.getItem('token'));
+
+      xhr.send(formData);
+
+    });
+
   }
 }

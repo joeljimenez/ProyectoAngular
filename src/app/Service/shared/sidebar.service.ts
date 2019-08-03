@@ -22,7 +22,7 @@ menu: any = [
     submenu: [
        {
          titulo: 'Crear Usuarios',
-         url: '/create_user',
+         url: '/usuarios',
          icono: 'fa fa-user'
        }
        ,
@@ -34,9 +34,19 @@ menu: any = [
       ,
       {
        titulo: 'Crear Categorias',
-       url: '/create_categories',
+       url: '/categorias',
        icono: 'fa fa-product-hunt',
-     } 
+     },
+     {
+       titulo: 'Crear Autos',
+       url: '/autos',
+       icono : ' fa fa-product-hunt'
+     },
+     {
+      titulo: 'Crear Marcas',
+      url: '/marcas',
+      icono : ' fa fa-product-hunt'
+    }
     ]
   }
 ];

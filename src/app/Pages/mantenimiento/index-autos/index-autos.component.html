@@ -1,0 +1,49 @@
+
+                   <div class="col-ls-6">
+                      <a [routerLink]="[ '/crear_autos']" class="btn btn-dribbble"> <i class="fa fa-plus"></i> Crear Autos</a>
+                    </div>
+                    <br>
+                     <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">AUTOS</h4>
+                            <h6 class="card-subtitle">Lista de Autos</h6>
+                            <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Marca</th>
+                                      <th>Modelo</th>
+                                      <th>imagen</th>
+                                      <th>Año</th>
+                                      <th>Estado</th>
+                                      <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of autos">
+                                    <td>{{item.marca}}</td>
+                                    <td>{{item.modelo}}</td>
+                                    
+                                        <td>
+                                            <img src="http://localhost:3001/public/assets/autos/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                                            <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
+                                            
+                                          </td>
+                                
+                                    
+                                    
+                                    <td>{{item.anio}}</td>
+                                    <td>
+                                        <span *ngIf="item.estado" class="badge badge-success">Activo</span>
+                                        <span *ngIf="!item.estado" class="badge badge-danger">Inactivo</span>
+                                      </td>
+                                    <td>
+                                      <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Producto"> <i class="fa fa-trash"></i></button>
+                                      <a [routerLink]="[ '/autos/ver/', item._id ]" class="btn btn-outline-success" title="Editar Producto"> <i class="fa fa-pencil"></i></a> 
+                                    </td>
+                                </tr>
+   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+   

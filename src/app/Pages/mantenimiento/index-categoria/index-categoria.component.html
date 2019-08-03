@@ -1,0 +1,44 @@
+                   <div class="col-ls-6">
+                      <a [routerLink]="[ '/categorias_crear']" class="btn btn-dribbble"> <i class="fa fa-plus"></i> Crear Categorias</a>
+                    </div>
+                    <br>
+                     <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">CATEGORIAS</h4>
+                            <h6 class="card-subtitle">Lista de Categorias</h6>
+                            <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Nombre</th>
+                                      <th>Descripción</th>
+                                      <th>Imagen</th>
+                                      <th>Estado</th> 
+                                      <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of categoria">
+                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.descripcion}}</td>
+                                    <td>
+                                        <img src="http://localhost:3001/public/assets/categoria/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                                        <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
+                                        
+                                      </td>
+                                    
+                                        <td>
+                                          <span *ngIf="item.estado" class="badge badge-success">Activo</span>
+                                          <span *ngIf="!item.estado" class="badge badge-danger">Inactivo</span>
+                                        </td>
+                                    
+                                     <td>
+                                      <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Categoria"> <i class="fa fa-trash"></i></button>
+                                      <a [routerLink]="[ '/categorias/', item._id ]" class="btn btn-outline-success" title="Editar Categorias"> <i class="fa fa-pencil"></i></a>
+                                    </td>
+                                </tr>
+   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+   

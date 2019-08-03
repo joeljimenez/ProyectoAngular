@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Productos } from '../../../models/producto.models';
 import { ProductService } from 'src/app/Service/Productos/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CategoriasService } from 'src/app/Service/categoria/categorias.service';
+import { AutosService } from 'src/app/Service/service.index';
 
 @Component({
   selector: 'app-crear-producto',
@@ -10,17 +12,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CrearProductoComponent implements OnInit {
 
-  constructor(private _service: ProductService, private _route: Router, private params: ActivatedRoute) {
+  constructor(private _service: ProductService,
+    private _route: Router,
+    private params: ActivatedRoute,
+    private _service_categoria: CategoriasService,
+    private _service_auto: AutosService) {
   }
-  public imagen: File;
+  public imagenSubir: File;
   public id: string;
-  public actulizar = false;
+  public actualizar = false;
   ngOnInit() {
     this.id = this.params.snapshot.paramMap.get('id');
     if (this.id != null) {
       this.one_producto();
-      this.actulizar = true;
+      this.actualizar = true;
     }
+
+    this.get_all_categoria();
+    this.get_all_autos();
   }
   mensaje_error: string = "";
   error = true;
@@ -28,6 +37,11 @@ export class CrearProductoComponent implements OnInit {
   mensaje_exito: string = "";
   exito = false;
 
+  mensaje_subida: string;
+  exito_subida = false;
+
+  imagenTemp: any;
+  habilitar = true;
 
   productos: Productos = {
     nombre: '',
@@ -38,27 +52,44 @@ export class CrearProductoComponent implements OnInit {
     estado: 1,
     id_categoria: '',
     img: '',
+    id_auto: ''
   }
-  categoria: any = [
-    {
-      id_categoria: 1,
-      categoria: 'Auto'
-    },
-    {
-      id_categoria: 2,
-      categoria: 'Motos'
-    }
-  ];
-
+  categoria: any = [];
+  autos: any = [];
   public res: any = {
     exito: '',
     token: '',
-    productos: '',
-  }
-  guardar(product: Productos) {
-    console.log(this.productos);
 
-    if (!this.actulizar) {
+  }
+
+  public res_auto: any = {
+    exito: '',
+    token: '',
+    autos:'',
+
+  }
+
+  get_all_categoria() {
+    this._service_categoria.get_categorias().subscribe((data) => {
+      this.res = data;
+      this.categoria = this.res.categories;
+      console.log(this.categoria);
+    });
+  }
+
+  get_all_autos() {
+    this._service_auto.get_autos().subscribe((data) => {
+      console.log(data);
+      this.res_auto = data;
+      this.autos = this.res_auto.autos;
+      console.log(this.autos);
+    })
+  }
+
+  guardar(product: Productos) {
+
+
+    if (!this.actualizar) {
       this._service.crear_producto(product).subscribe((data) => {
         this.res = data;
         this.error = this.res.exito;
@@ -101,8 +132,8 @@ export class CrearProductoComponent implements OnInit {
   one_producto() {
     this._service.get_producto_id(this.id).subscribe((data) => {
       this.res = data;
-      console.log(this.res);
       this.productos = this.res.productosDB;
+      console.log(this.productos);
 
     });
   }
@@ -117,16 +148,60 @@ export class CrearProductoComponent implements OnInit {
       estado: 1,
       id_categoria: '',
       img: '',
+      id_auto: ''
     }
   }
 
+  seleccionImage(archivo: File) {
+    if (!archivo) {
+      this.imagenSubir = null;
+      return;
+    }
+    this.habilitar = false;
+    this.imagenSubir = archivo;
 
-  subir_imagen(imagen) {
-    this.imagen = imagen;
-    console.log(this.imagen);
-    this._service.update_imagen(this.imagen, this.id).subscribe((data) => {
-      console.log(data);
-    });
+
+
+    const reader = new FileReader();
+    reader.onload = e => this.imagenTemp = reader.result;
+
+    reader.readAsDataURL(archivo);
+
   }
+  subir_imagen() {
+
+    this._service.update_imagen(this.imagenSubir, this.id);
+  }
+
+
+  seleccionImageMasiva(archivo: File) {
+    console.log(archivo);
+    if (!archivo) {
+      this.imagenSubir = null;
+      return;
+    }
+
+    this.imagenSubir = archivo;
+  }
+  subir_imagenMasiva() {
+
+    this._service.subirArchivoMasivo(this.imagenSubir, 'productosMasivo', this.id)
+      .then((resp: any) => {
+        this.mensaje_subida = resp.message;
+        this.exito_subida = resp.extio;
+        setTimeout(() => {
+          this.exito_subida = false;
+        }, 3000);
+
+      })
+      .catch(resp => {
+        console.log(resp);
+
+      });
+
+
+  }
+
+
 
 }

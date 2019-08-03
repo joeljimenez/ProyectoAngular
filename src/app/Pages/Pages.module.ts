@@ -3,9 +3,7 @@ import { CommonModule} from '@angular/common';
 
 
 import { Grafica1Component } from './grafica1/grafica1.component';
-import { PrincipalComponent } from './principal/principal.component';
-
-import { ProgressComponent } from './progress/progress.component';
+import { PrincipalComponent } from './principal/principal.component'; 
 import { PagesComponent } from './pages.component';
 import { SharedModel } from '../Shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
@@ -21,14 +19,22 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { CrearProductoComponent } from './mantenimiento/crear-producto/crear-producto.component';
 import { IndexComponent } from './mantenimiento/index/index.component';
+import { IndexUserComponent } from './mantenimiento/index-user/index-user.component';
+import { CreateUserComponent } from './mantenimiento/create-user/create-user.component';
+import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-categoria.component';
+import { CreateCategoriaComponent } from './mantenimiento/create-categoria/create-categoria.component';
+import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
+import { AutosComponent } from './mantenimiento/autos/autos.component';
+import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.component';
+import { IndexMarcasComponent } from './mantenimiento/index-marcas/index-marcas.component';
+import { MarcasComponent } from './mantenimiento/marcas/marcas.component';
 
 
 
 
 @NgModule({
   declarations : [
-    PrincipalComponent ,
-    ProgressComponent,
+    PrincipalComponent , 
     Grafica1Component,
     PagesComponent,
     IncrementadorComponent,
@@ -37,11 +43,19 @@ import { IndexComponent } from './mantenimiento/index/index.component';
     PerfilUsuarioComponent,
     CrearProductoComponent,
     IndexComponent,
+    IndexUserComponent,
+    CreateUserComponent,
+    IndexCategoriaComponent,
+    CreateCategoriaComponent,
+    ShowFotosComponent,
+    AutosComponent,
+    IndexAutosComponent,
+    IndexMarcasComponent,
+    MarcasComponent,
 
   ],
   exports : [
-    PrincipalComponent,
-    ProgressComponent,
+    PrincipalComponent, 
     Grafica1Component,
     PagesComponent,
   ],

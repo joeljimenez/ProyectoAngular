@@ -3,11 +3,13 @@ export class Usuario {
         public nombre:string,
         public email:string,
         public password:string,
-        public estado?: true,
-        public rol?:string,
+        public direccion?: string,
+        public edad?: number,
+        public estado?: boolean,
+        public role?:string,
         public img?:string,
         public google?:boolean
-
+ 
     ) {
         
     }
