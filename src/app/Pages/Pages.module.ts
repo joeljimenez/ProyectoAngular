@@ -26,6 +26,8 @@ import { CreateCategoriaComponent } from './mantenimiento/create-categoria/creat
 import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
 import { AutosComponent } from './mantenimiento/autos/autos.component';
 import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.component';
+import { IndexMarcasComponent } from './mantenimiento/index-marcas/index-marcas.component';
+import { MarcasComponent } from './mantenimiento/marcas/marcas.component';
 
 
 
@@ -48,6 +50,8 @@ import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.com
     ShowFotosComponent,
     AutosComponent,
     IndexAutosComponent,
+    IndexMarcasComponent,
+    MarcasComponent,
 
   ],
   exports : [

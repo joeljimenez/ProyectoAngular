@@ -41,7 +41,12 @@ menu: any = [
        titulo: 'Crear Autos',
        url: '/autos',
        icono : ' fa fa-product-hunt'
-     } 
+     },
+     {
+      titulo: 'Crear Marcas',
+      url: '/marcas',
+      icono : ' fa fa-product-hunt'
+    }
     ]
   }
 ];
