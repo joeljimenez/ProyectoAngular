@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutosService } from 'src/app/Service/service.index';
-import { Auto } from 'src/app/models/autos.models';
+import { AutoModel } from '../../../models/autos.models';
 
 @Component({
   selector: 'app-index-autos',
@@ -8,7 +8,7 @@ import { Auto } from 'src/app/models/autos.models';
   styleUrls: ['./index-autos.component.css']
 })
 export class IndexAutosComponent implements OnInit {
-  autos: Auto;
+  autos: AutoModel;
 
   public res: any = {
     exito: '', 
@@ -29,6 +29,12 @@ export class IndexAutosComponent implements OnInit {
       this.autos = this.res.autos;
       console.log(this.autos);
     })
+  }
+
+  eliminar(id:any){
+this._service.delete_auto(id).subscribe((data)=>{
+  this.llenar_tabla();
+})
   }
 
 }

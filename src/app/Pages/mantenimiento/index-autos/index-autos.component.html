@@ -24,11 +24,11 @@
                                     <td>{{item.modelo}}</td>
                                     
                                         <td>
-                                            <img src="http://localhost:3001/public/assets/productos/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                                            <img src="http://localhost:3001/public/assets/autos/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
                                             <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
                                             
                                           </td>
-                                    
+                                
                                     
                                     
                                     <td>{{item.anio}}</td>
@@ -38,8 +38,7 @@
                                       </td>
                                     <td>
                                       <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Producto"> <i class="fa fa-trash"></i></button>
-                                      <a [routerLink]="[ '/Editar', item._id ]" class="btn btn-outline-success" title="Editar Producto"> <i class="fa fa-pencil"></i></a>
-                                      <a [routerLink]="[ '/ver_fotos', item._id ]" class="btn btn-outline-primary" title="Subir Imagenes"> <i class="fa fa-eye"></i></a>
+                                      <a [routerLink]="[ '/autos/ver/', item._id ]" class="btn btn-outline-success" title="Editar Producto"> <i class="fa fa-pencil"></i></a> 
                                     </td>
                                 </tr>
    

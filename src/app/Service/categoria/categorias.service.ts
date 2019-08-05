@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { url } from '../../URL/URL';
 import { Router } from '@angular/router';
 import { Categoria } from '../../models/categoria.model';
+import { Marcas } from 'src/app/models/marcas.model';
 
 
 const httpOptions = {
@@ -88,6 +89,26 @@ export class CategoriasService {
 
   }
 
+  update_imagen_marcas(imagen: File, id) {
+    
+    this.subirArchivo(imagen, 'marcas', id)
+      .then((resp: any) => {
+
+
+        this.ruta.navigate(['/marcas']);
+
+
+      })
+      .catch(resp => {
+        console.log(resp);
+        if (resp.err.causa == 'token') {
+          this.ruta.navigate(['/Session']);
+          localStorage.removeItem('token');
+        }
+      });
+
+  }
+
   subirArchivo(archivo: File, tipo: string, id: string) {
 
     return new Promise((resolve, reject) => {
@@ -124,5 +145,46 @@ export class CategoriasService {
     });
 
   }
+
+
+
+
+  // marcas
+  get_marcas() {
+    const url_api = url + '/marcas/all';
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('marcas')));
+  }
+
+  create_marcas(data) {
+    const url_api = url + '/marcas/create';
+    return this.http.post(url_api , data ,httpOptions)
+      .pipe(
+        catchError(this.handleError('marcas')));
+  }
+
+
+  get_marcas_id(id) {
+    const url_api = url + '/marcas/'+id;
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('marcas')));
+  }
+
+  update_marcas(marca: Marcas , id) {
+    const url_api = url + `/marcas/update/${id}`;
+    return this.http.put(url_api, marca, httpOptions)
+      .pipe(
+        catchError(this.handleError('Login')));
+  }
+
+  delete_marca(id) {
+    const url_api = url + `/marcas/delete/${id}`;
+    return this.http.delete(url_api, httpOptions)
+      .pipe(
+        catchError(this.handleError('productos')));
+  }
+
 
 }

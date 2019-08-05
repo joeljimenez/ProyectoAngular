@@ -19,7 +19,8 @@ export class CreateCategoriaComponent implements OnInit {
     nombre: '',
     descripcion: '',
     estado: true,
-    img: ''
+    img: '',
+    slug: ''
   }
   mensaje_error: string = "";
   error = true;
@@ -28,55 +29,55 @@ export class CreateCategoriaComponent implements OnInit {
   exito = false;
 
   public actualizar = false;
-  id:string;
-  imagenSubir:File;
-  imagenTemp:any;
-  constructor(private _service: CategoriasService ,
-     private _router:Router ,
-      private _param :ActivatedRoute) {
-        this.id= _param.snapshot.paramMap.get('id');
-        if (this.id != null) {
-          this.one_categoria();
-          this.actualizar  =true;
-         
-        }
-       }
+  id: string;
+  imagenSubir: File;
+  imagenTemp: any;
+  constructor(private _service: CategoriasService,
+    private _router: Router,
+    private _param: ActivatedRoute) {
+    this.id = _param.snapshot.paramMap.get('id');
+    if (this.id != null) {
+      this.one_categoria();
+      this.actualizar = true;
+
+    }
+  }
 
   ngOnInit() {
   }
 
   guardar(categoria: Categoria) {
-    if (this.id !=null) {
-      this._service.update_Categoria(categoria, this.id).subscribe((data)=>{
+    if (this.id != null) {
+      this._service.update_Categoria(categoria, this.id).subscribe((data) => {
         this.res = data;
         this.error = this.res.exito;
         this.exito = this.res.exito;
         if (this.res.exito) {
-  
+
           this.mensaje_exito = 'Categoria Actualizada Correctamente';
           setTimeout(() => {
             this._router.navigate(['/categorias']);
             this.limpiar();
           }, 3000);
         } else {
-  
+
           this.mensaje_error = this.res.err.message;
         }
       })
-    } else {      
+    } else {
       this._service.crear_categoria(categoria).subscribe((data) => {
         this.res = data;
         this.error = this.res.exito;
         this.exito = this.res.exito;
         if (this.res.exito) {
-  
+
           this.mensaje_exito = 'Categoria Creada Correctamente';
           setTimeout(() => {
             this._router.navigate(['/categorias']);
             this.limpiar();
           }, 3000);
         } else {
-  
+
           this.mensaje_error = this.res.err.message;
         }
       });
@@ -87,27 +88,28 @@ export class CreateCategoriaComponent implements OnInit {
       nombre: '',
       descripcion: '',
       estado: true,
-      img: ''
+      img: '',
+      slug: ''
     }
   }
 
   one_categoria() {
-    this._service.get_categoria_id(this.id).subscribe((data)=>{
-this.res = data;
-this.categoria = this.res.categories;
- 
+    this._service.get_categoria_id(this.id).subscribe((data) => {
+      this.res = data;
+      this.categoria = this.res.categories;
+
     });
   }
 
 
-  seleccionImage(archivo: File){
-    if ( !archivo ) {
+  seleccionImage(archivo: File) {
+    if (!archivo) {
       this.imagenSubir = null;
       return;
     }
-    
+
     this.imagenSubir = archivo;
- 
+
 
 
     const reader = new FileReader();
@@ -117,11 +119,9 @@ this.categoria = this.res.categories;
 
   }
   subir_imagen() {
- 
-      this._service.update_imagen(this.imagenSubir, this.id);
-   
-    
+    this._service.update_imagen(this.imagenSubir, this.id);
   }
+  
 
 
 }

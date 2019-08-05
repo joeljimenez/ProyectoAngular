@@ -14,6 +14,8 @@ import { IndexCategoriaComponent } from './mantenimiento/index-categoria/index-c
 import { ShowFotosComponent } from './mantenimiento/show-fotos/show-fotos.component';
 import { AutosComponent } from './mantenimiento/autos/autos.component';
 import { IndexAutosComponent } from './mantenimiento/index-autos/index-autos.component';
+import { IndexMarcasComponent } from './mantenimiento/index-marcas/index-marcas.component';
+import { MarcasComponent } from './mantenimiento/marcas/marcas.component';
 
 const pagesRoutes: Routes = [
 
@@ -39,6 +41,8 @@ const pagesRoutes: Routes = [
         {path: 'autos', component: IndexAutosComponent},
         {path: 'autos/ver/:id', component: AutosComponent},
         {path: 'crear_autos', component: AutosComponent},
+        {path: 'marcas', component: IndexMarcasComponent},
+        {path: 'marcas/:id', component: MarcasComponent},
         {path: '', redirectTo: '/Dashboard', pathMatch: 'full'}
     ]
 

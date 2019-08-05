@@ -147,7 +147,7 @@ export class ProductService {
 
   /*===========================================================
   =========================================================== */
-  subirArchivoMasivo(archivo: File, tipo: string, id: string) {
+  subirArchivoMasivo(archivo: any, tipo: string, id: string) {
        
       
      
