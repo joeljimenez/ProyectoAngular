@@ -11,7 +11,7 @@ export class IndexAutosComponent implements OnInit {
   autos: Auto;
 
   public res: any = {
-    exito: '',
+    exito: '', 
     token: '',
     autos: '',
   }
@@ -20,7 +20,7 @@ export class IndexAutosComponent implements OnInit {
     this.llenar_tabla();
   }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
   llenar_tabla() {
@@ -32,3 +32,4 @@ export class IndexAutosComponent implements OnInit {
   }
 
 }
+ 
