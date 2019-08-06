@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 menu: any = [
   {
-    titulo: 'Home',
+    titulo: 'Inicio',
     icono: 'mdi mdi-gauge',
     submenu: [
        {
@@ -17,33 +17,33 @@ menu: any = [
     ]
   },
   {
-    titulo: 'Mantenimiento',
+    titulo: 'Sitio Web',
     icono: 'mdi mdi-pencil',
     submenu: [
        {
-         titulo: 'Crear Usuarios',
+         titulo: 'Usuarios',
          url: '/usuarios',
          icono: 'fa fa-user'
        }
        ,
        {
-        titulo: 'Crear Productos',
+        titulo: 'Productos',
         url: '/index_productos',
         icono: 'fa fa-product-hunt',
       } 
       ,
       {
-       titulo: 'Crear Categorias',
+       titulo: 'Categorías',
        url: '/categorias',
        icono: 'fa fa-product-hunt',
      },
      {
-       titulo: 'Crear Autos',
+       titulo: 'Autos',
        url: '/autos',
        icono : ' fa fa-product-hunt'
      },
      {
-      titulo: 'Crear Marcas',
+      titulo: 'Marcas',
       url: '/marcas',
       icono : ' fa fa-product-hunt'
     }
