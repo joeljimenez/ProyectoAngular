@@ -11,7 +11,7 @@ export class IndexAutosComponent implements OnInit {
   autos: AutoModel;
 
   public res: any = {
-    exito: '',
+    exito: '', 
     token: '',
     autos: '',
   }
@@ -20,7 +20,7 @@ export class IndexAutosComponent implements OnInit {
     this.llenar_tabla();
   }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
   llenar_tabla() {
@@ -38,3 +38,4 @@ this._service.delete_auto(id).subscribe((data)=>{
   }
 
 }
+ 

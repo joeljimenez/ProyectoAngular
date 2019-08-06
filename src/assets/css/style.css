@@ -570,7 +570,7 @@ Text Colors
 }
 
 .text-danger {
-    color: #ef5350 !important;
+    color: #f69401 !important;
 }
 
 .text-muted {
@@ -639,7 +639,7 @@ Background Colors
 }
 
 .bg-danger {
-    background-color: #ef5350 !important;
+    background-color: #f69401 !important;
 }
 
 html body .bg-megna {
@@ -735,7 +735,7 @@ Rounds
 }
 
 .round.round-danger {
-    background: #ef5350;
+    background: #f69401;
 }
 
 .round.round-success {
@@ -781,7 +781,7 @@ Labels
 }
 
 .label-danger {
-    background-color: #ef5350;
+    background-color: #f69401;
 }
 
 .label-megna {
@@ -829,7 +829,7 @@ Labels
 
 .label-light-danger {
     background-color: #f9e7eb;
-    color: #ef5350;
+    color: #f69401;
 }
 
 .label-light-megna {
@@ -886,7 +886,7 @@ Labels
 }
 
 .badge-danger {
-    background-color: #ef5350;
+    background-color: #f69401;
 }
 
 .badge-purple {
@@ -1526,7 +1526,7 @@ File: scss
 }
 
 .topbar ul.dropdown-user li .dw-user-box .u-text .btn:hover {
-    background: #e6294b;
+    background: #f69401;
 }
 
 .topbar ul.dropdown-user li a {
@@ -1613,7 +1613,7 @@ Notify
     height: 25px;
     width: 25px;
     z-index: 10;
-    border: 5px solid #ef5350;
+    border: 5px solid #f69401;
     border-radius: 70px;
     -moz-animation: heartbit 1s ease-out;
     -moz-animation-iteration-count: infinite;
@@ -1630,7 +1630,7 @@ Notify
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
-    background-color: #ef5350;
+    background-color: #f69401;
     position: absolute;
     right: 6px;
     top: -10px;
@@ -1984,7 +1984,7 @@ ul#themecolors li a.working:before {
 }
 
 .red-theme {
-    background: #ef5350;
+    background: #f69401;
 }
 
 .blue-theme {
@@ -2027,13 +2027,13 @@ ul#themecolors li a.working:before {
 .yellow-dark-theme {
     background: #263238;
     /* Old browsers */
-    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
     /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #ef5350), color-stop(99%, #ef5350));
-    background: -o-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
-    background: linear-gradient(to right, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #f69401), color-stop(99%, #f69401));
+    background: -o-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
+    background: linear-gradient(to right, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
 }
 
 .blue-dark-theme {
@@ -2075,13 +2075,13 @@ ul#themecolors li a.working:before {
 .red-dark-theme {
     background: #263238;
     /* Old browsers */
-    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -moz-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -webkit-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
     /* Chrome10-25,Safari5.1-6 */
-    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #ef5350), color-stop(99%, #ef5350));
-    background: -o-linear-gradient(left, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
-    background: linear-gradient(to right, #263238 0%, #263238 23%, #ef5350 23%, #ef5350 99%);
+    background: -webkit-gradient(linear, left top, right top, from(#263238), color-stop(23%, #263238), color-stop(23%, #f69401), color-stop(99%, #f69401));
+    background: -o-linear-gradient(left, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
+    background: linear-gradient(to right, #263238 0%, #263238 23%, #f69401 23%, #f69401 99%);
 }
 
 
@@ -2385,7 +2385,7 @@ Notification page Jquery toaster
 }
 
 .jq-icon-error {
-    background-color: #ef5350;
+    background-color: #f69401;
     color: #ffffff;
 }
 
@@ -2850,8 +2850,8 @@ Buttons
 
 .btn-danger,
 .btn-danger.disabled {
-    background: #ef5350;
-    border: 1px solid #ef5350;
+    background: #f69401;
+    border: 1px solid #f69401;
     -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
     box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
     -webkit-transition: 0.2s ease-in;
@@ -2861,10 +2861,10 @@ Buttons
 
 .btn-danger:hover,
 .btn-danger.disabled:hover {
-    background: #ef5350;
+    background: #f69401;
     -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
-    border: 1px solid #ef5350;
+    border: 1px solid #f69401;
 }
 
 .btn-danger.active,
@@ -3072,9 +3072,9 @@ Buttons
 }
 
 .btn-outline-danger {
-    color: #ef5350;
+    color: #f69401;
     background-color: transparent;
-    border-color: #ef5350;
+    border-color: #f69401;
     -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
     box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
     -webkit-transition: 0.2s ease-in;
@@ -3085,8 +3085,8 @@ Buttons
 .btn-outline-danger:hover,
 .btn-outline-danger:focus,
 .btn-outline-danger.focus {
-    background: #ef5350;
-    border-color: #ef5350;
+    background: #f69401;
+    border-color: #f69401;
     color: #ffffff;
     -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
     box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
@@ -5300,7 +5300,7 @@ pre {
 }
 
 .error .form-control {
-    border-color: #ef5350;
+    border-color: #f69401;
 }
 
 .validate .form-control {
@@ -5419,7 +5419,7 @@ Table-Layout
 }
 
 .color-table.danger-table thead th {
-    background-color: #ef5350;
+    background-color: #f69401;
     color: #ffffff;
 }
 
@@ -5485,11 +5485,11 @@ Table-Layout
 }
 
 .color-bordered-table.danger-bordered-table {
-    border: 2px solid #ef5350;
+    border: 2px solid #f69401;
 }
 
 .color-bordered-table.danger-bordered-table thead th {
-    background-color: #ef5350;
+    background-color: #f69401;
     color: #ffffff;
 }
 
@@ -5619,7 +5619,7 @@ Table-Layout
 }
 
 .full-color-table.full-danger-table thead th {
-    background-color: #ef5350;
+    background-color: #f69401;
     border: 0;
     color: #ffffff;
 }
@@ -5629,7 +5629,7 @@ Table-Layout
 }
 
 .full-color-table.full-danger-table tr:hover {
-    background-color: #ef5350;
+    background-color: #f69401;
     color: #ffffff;
 }
 
@@ -6195,7 +6195,9 @@ File: scss
 
 
 /*******************/
-
+.topbar {
+    background-color: #f69401;
+}
 .topbar .top-navbar .mailbox {
     width: 300px;
 }
@@ -6267,7 +6269,7 @@ File: scss
 }
 
 .mailbox .message-center a .user-img .busy {
-    background: #ef5350;
+    background: #f69401;
 }
 
 .mailbox .message-center a .user-img .away {
@@ -6612,7 +6614,7 @@ File: scss
 }
 
 .message-box .message-widget a .user-img .busy {
-    background: #ef5350;
+    background: #f69401;
 }
 
 .message-box .message-widget a .user-img .away {
@@ -6752,7 +6754,7 @@ File: scss
 }
 
 .fc-unthemed .fc-today {
-    border: 1px solid #ef5350;
+    border: 1px solid #f69401;
     background: #e9edf2 !important;
 }
 
@@ -7641,7 +7643,7 @@ File: scss
 .has-danger .form-check-label,
 .has-danger .form-control-feedback,
 .has-danger .form-control-label {
-    color: #ef5350;
+    color: #f69401;
 }
 
 .has-danger .form-control-danger {
@@ -7649,7 +7651,7 @@ File: scss
 }
 
 .has-danger .form-control {
-    border-color: #ef5350;
+    border-color: #f69401;
 }
 
 .input-group-addon [type="radio"]:not(:checked),
