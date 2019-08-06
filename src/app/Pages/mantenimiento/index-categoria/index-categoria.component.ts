@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriasService } from 'src/app/Service/categoria/categorias.service';
 import { Categoria } from 'src/app/models/categoria.model';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 
 @Component({
   selector: 'app-index-categoria',
@@ -13,7 +13,7 @@ export class IndexCategoriaComponent implements OnInit {
   constructor(private _service: CategoriasService) {
     this.get_all_categoria();
   }
-
+ruta  =rutaImagen;
   ngOnInit() {
   }
   categoria: Categoria;

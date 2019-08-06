@@ -3,64 +3,62 @@
     <span class="fa fa-plus"></span>
       Crear Marcas
     </button>
-  </div>
-  <br>
-   <div class="card">
-      <div class="card-body">
-          <h4 class="card-title">MARCAS</h4>
-          <h6 class="card-subtitle">Lista de Marcas</h6>
-          <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
-              <thead>
-                  <tr>
+</div>
+<br>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">MARCAS</h4>
+        <h6 class="card-subtitle">Lista de Marcas</h6>
+        <table id="demo-foo-row-toggler" class="table toggle-circle table-hover">
+            <thead>
+                <tr>
                     <th>Nombre</th>
-                    <th>Imagen</th> 
+                    <th>Imagen</th>
                     <th>Acciones</th>
-                  </tr>
-              </thead>
-              <tbody>
+                </tr>
+            </thead>
+            <tbody>
                 <tr *ngFor="let item of res_marca">
-                  <td>{{item.marca}}</td> 
-                  <td>
-                      <img src="http://localhost:3001/public/assets/marcas/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
-                      <img src="http://localhost:3001/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
-                      
+                    <td>{{item.marca}}</td>
+                    <td>
+                        <img src="{{ruta}}/public/assets/marcas/{{item.img}}" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img != null">
+                        <img src="{{ruta}}/public/assets/defecto/no_hay.jpg" alt="" style="width: 12vh;" class="img-responsive img-thumbnail" *ngIf="item.img == null">
+
                     </td>
-                
-                  
-                   <td>
-                    <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Categoria"> <i class="fa fa-trash"></i></button>
-                    <a [routerLink]="[ '/marcas/', item._id ]" class="btn btn-outline-success" title="Editar Categorias"> <i class="fa fa-pencil"></i></a>
-                  </td>
-              </tr>
-
-              </tbody>
-          </table>
-      </div>
-  </div>
 
 
-  <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title">Crear Marcas</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              </div>
-               
-              <div class="modal-body">
-                  <form>
-                      <div class="form-group">
-                          <label for="recipient-name" class="control-label">Nombre Marcas</label>
-                          <input type="text" class="form-control" id="recipient-name" placeholder="Nombre de Marcas" [(ngModel)]="marcas_res.marca" name="marca">
-                      </div> 
-                  </form>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-danger waves-effect waves-light" (click)="guardar()">Guardar</button>
-              </div>
-          </div>
-      </div>
-  </div>
+                    <td>
+                        <button (click)="eliminar(item._id)" class="btn btn-outline-danger" title="Eliminar Categoria"> <i class="fa fa-trash"></i></button>
+                        <a [routerLink]="[ '/marcas/', item._id ]" class="btn btn-outline-success" title="Editar Categorias"> <i class="fa fa-pencil"></i></a>
+                    </td>
+                </tr>
 
- 
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Crear Marcas</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Nombre Marcas</label>
+                        <input type="text" class="form-control" id="recipient-name" placeholder="Nombre de Marcas" [(ngModel)]="marcas_res.marca" name="marca">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger waves-effect waves-light" (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

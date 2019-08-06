@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../../../models/categoria.model';
 import { CategoriasService } from '../../../Service/categoria/categorias.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-create-categoria',
   templateUrl: './create-categoria.component.html',
   styleUrls: ['./create-categoria.component.css']
 })
 export class CreateCategoriaComponent implements OnInit {
+  ruta = rutaImagen;
 
   public res: any = {
     exito: '',

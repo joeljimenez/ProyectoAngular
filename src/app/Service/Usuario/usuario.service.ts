@@ -27,9 +27,6 @@ export class UsuarioService {
         catchError(this.handleError('Usuario')));
   }
 
- 
-
-
 
   //traer un usuario
   get_one_usuario(id) {

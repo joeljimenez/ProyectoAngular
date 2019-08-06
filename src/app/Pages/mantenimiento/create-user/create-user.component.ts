@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.models';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateUserComponent implements OnInit {
   id: string;
+  ruta = rutaImagen;
   usuario: Usuario = {
     nombre: '',
     email: '',

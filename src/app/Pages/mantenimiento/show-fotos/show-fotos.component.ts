@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/Service/Productos/product.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-show-fotos',
   templateUrl: './show-fotos.component.html',
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowFotosComponent implements OnInit {
 id:string;
+ruta  = rutaImagen;
 
 
 public res: any = {

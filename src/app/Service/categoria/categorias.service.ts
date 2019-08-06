@@ -75,7 +75,7 @@ export class CategoriasService {
       .then((resp: any) => {
 
 
-        this.ruta.navigate(['/index_productos']);
+        this.ruta.navigate(['/categorias']);
 
 
       })

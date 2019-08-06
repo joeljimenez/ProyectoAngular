@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { Usuario } from '../../models/usuario.models';
 import { Router, ActivatedRoute } from '@angular/router';
+import { rutaImagen } from '../../URL/rutaImagen';
+
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -10,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PerfilUsuarioComponent implements OnInit {
 id:string;
+ruta = rutaImagen;
 public res: any = {
   exito: '',
   token: '',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { Usuario } from 'src/app/models/usuario.models';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-index-user',
   templateUrl: './index-user.component.html',
@@ -9,6 +9,7 @@ import { Usuario } from 'src/app/models/usuario.models';
 })
 export class IndexUserComponent implements OnInit {
   usuario: Usuario;
+  ruta = rutaImagen;
   public res: any = {
     exito: '',
     token: '',

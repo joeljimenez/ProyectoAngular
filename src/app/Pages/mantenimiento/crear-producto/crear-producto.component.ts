@@ -4,6 +4,8 @@ import { ProductService } from 'src/app/Service/Productos/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoriasService } from 'src/app/Service/categoria/categorias.service';
 import { AutosService } from 'src/app/Service/service.index';
+import { rutaImagen } from '../../../URL/rutaImagen';
+
 
 @Component({
   selector: 'app-crear-producto',
@@ -12,6 +14,7 @@ import { AutosService } from 'src/app/Service/service.index';
 })
 export class CrearProductoComponent implements OnInit {
 
+  ruta = rutaImagen;
   constructor(private _service: ProductService,
     private _route: Router,
     private params: ActivatedRoute,

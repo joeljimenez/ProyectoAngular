@@ -1,183 +1,180 @@
 <div class="row">
-  <div class="col-lg-12">
+    <div class="col-lg-12">
 
 
-  <div class="col-lg-3">
-    <a [routerLink]="[ '/index_productos' ]" class="btn btn-outline-danger btn-block"> Atras</a>
-  </div>
-    <br>
-    <div class="card">
-      <div class="card-header bg-inverse">
-        <h4 class="m-b-0 text-white">Crear Productos</h4>
-      </div>
-      <div class="card-body">
-        <form #f="ngForm" (ngSubmit)="guardar( f.value )">
-          <div class="form-body">
-
-            <hr>
-            <div class="row p-t-20">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Nombre Producto</label>
-                  <input [(ngModel)]="productos.nombre"  name="nombre" type="text" class="form-control" placeholder="Nombre">
-                </div>
-              </div>
-              <!--/span-->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Codigo Producto</label>
-                  <input type="text" [(ngModel)]="productos.codigo" name="codigo"  class="form-control" placeholder="Codigo ">
-                </div>
-              </div>
-              <!--/span-->
+        <div class="col-lg-3">
+            <a [routerLink]="[ '/index_productos' ]" class="btn btn-outline-danger btn-block"> Atras</a>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header bg-inverse">
+                <h4 class="m-b-0 text-white">Crear Productos</h4>
             </div>
-            <!--/row-->
-            <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Precio Producto</label>
-                  <input type="number"  [(ngModel)]="productos.precio" name="precio" class="form-control" placeholder="Precio ">
-                </div>
-              </div> 
-              <!--/span-->
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Cantidad Producto</label>
-                  <input type="number" [(ngModel)]="productos.cantidad" name="cantidad" class="form-control" placeholder="Cantidad ">
-                </div>
-              </div>  
-              <!--/span-->
-            </div>
-            <!--/row-->
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Categoria</label>
-                  <select class="form-control" [(ngModel)]="productos.id_categoria" name="id_categoria" > 
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="guardar( f.value )">
+                    <div class="form-body">
+
+                        <hr>
+                        <div class="row p-t-20">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Producto</label>
+                                    <input [(ngModel)]="productos.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Codigo Producto</label>
+                                    <input type="text" [(ngModel)]="productos.codigo" name="codigo" class="form-control" placeholder="Codigo ">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Precio Producto</label>
+                                    <input type="number" [(ngModel)]="productos.precio" name="precio" class="form-control" placeholder="Precio ">
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Cantidad Producto</label>
+                                    <input type="number" [(ngModel)]="productos.cantidad" name="cantidad" class="form-control" placeholder="Cantidad ">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Categoria</label>
+                                    <select class="form-control" [(ngModel)]="productos.id_categoria" name="id_categoria"> 
                     <option [value]="0" selected>Seleccione Categoria</option>
                     <option *ngFor="let item of categoria" [value]="item._id">{{item.nombre}}</option> 
                   </select>
-                </div>
-              </div>  
+                                </div>
+                            </div>
 
-              <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="control-label">Autos</label>
-                    <select class="form-control" [(ngModel)]="productos.id_auto" name="id_auto" > 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Autos</label>
+                                    <select class="form-control" [(ngModel)]="productos.id_auto" name="id_auto"> 
                       <option [value]="0" selected>Seleccione Categoria</option>
                       <option *ngFor="let item of autos" [value]="item._id">{{item.marca}}</option> 
                     </select>
-                  </div>
-                </div>  
+                                </div>
+                            </div>
 
-              <!--/span-->
-            <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Estado</label>
-                  <div class="form-check">
-                    <label class="custom-control custom-radio">
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Estado</label>
+                                    <div class="form-check">
+                                        <label class="custom-control custom-radio">
                       <input   name="estado" [(ngModel)]="productos.estado" type="radio" checked class="custom-control-input" [value]="true">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Activo</span>
                     </label>
-                    <label class="custom-control custom-radio">
+                                        <label class="custom-control custom-radio">
                       <input   name="estado" [(ngModel)]="productos.estado" type="radio" class="custom-control-input"  [value] ="false">
                       <span class="custom-control-indicator"></span>
                       <span class="custom-control-description">Inactivo</span>
                     </label>
-                  </div>
-                </div>
-              </div> 
-              <!--/span-->
-            </div>
-            <!--/row-->
-            <!--/span-->
-            <div class="col-lg-12">
-              <div class="form-group">
-                <label class="control-label">Descripción del Producto</label>
-                <textarea class="form-control" [(ngModel)]="productos.descripcion" name="descripcion">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <!--/span-->
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="control-label">Descripción del Producto</label>
+                                <textarea class="form-control" [(ngModel)]="productos.descripcion" name="descripcion">
 
                 </textarea>
-              </div>  
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger" *ngIf="!error">
+                            {{mensaje_error}}
+                        </div>
+                        <div class="alert alert-success" *ngIf="exito">
+                            {{mensaje_exito}}
+                        </div>
+
+                    </div>
+                    <div class="form-actions" *ngIf="!actulizar">
+                        <button type="submit" class="btn btn-success btn-block" [disabled]="exito"> <i class="fa fa-check"></i> Guardar</button>
+                    </div>
+
+                    <div class="form-actions" *ngIf="actulizar">
+                        <button type="submit" class="btn btn-success btn-block" [disabled]="exito"> <i class="fa fa-check"></i> Actualizar</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="alert alert-danger" *ngIf="!error">
-                {{mensaje_error}}
-          </div>
-          <div class="alert alert-success" *ngIf="exito">
-              {{mensaje_exito}}
         </div>
-
-          </div>
-          <div class="form-actions" *ngIf="!actulizar">
-            <button type="submit" class="btn btn-success btn-block" [disabled]="exito"> <i class="fa fa-check"></i> Guardar</button>
-          </div>
-
-          <div class="form-actions" *ngIf="actulizar">
-            <button type="submit" class="btn btn-success btn-block" [disabled]="exito"> <i class="fa fa-check"></i> Actualizar</button>
-          </div>
-        </form>
-      </div>
     </div>
-  </div>
- 
+
 </div>
 
- 
+
 
 <div class="card" *ngIf="actualizar">
-  <div class="card-header bg-inverse">
-    <h4 class="m-b-0 text-white">Subir Imagen Principal</h4>
-  </div>
-  <div class="card-body">
-    
-   <div class="col-lg-12">
-     <div class="row">
-       <div class="col-lg-6">
-      <img *ngIf="!imagenTemp" src="http://localhost:3001/public/assets/productos/{{productos.img}}" class="img-responsive img-thumbnail" style="width: 50vh">
-      <img *ngIf="imagenTemp" [src]="imagenTemp" class="img-responsive img-thumbnail" style="width: 50vh">
-       </div>
-       <div class="col-lg-6">
-         <input type="file"  (change)="seleccionImage($event.target.files[0])">
-         <br>
- 
-         <br>
+    <div class="card-header bg-inverse">
+        <h4 class="m-b-0 text-white">Subir Imagen Principal</h4>
+    </div>
+    <div class="card-body">
 
-       <button class="btn btn-danger" (click)="subir_imagen()" [disabled]="habilitar">subir</button>
-         
-       </div>
-     </div>
-   </div>
-  </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img *ngIf="!imagenTemp" src="{{ruta}}/public/assets/productos/{{productos.img}}" class="img-responsive img-thumbnail" style="width: 50vh">
+                    <img *ngIf="imagenTemp" [src]="imagenTemp" class="img-responsive img-thumbnail" style="width: 50vh">
+                </div>
+                <div class="col-lg-6">
+                    <input type="file" (change)="seleccionImage($event.target.files[0])">
+                    <br>
+
+                    <br>
+
+                    <button class="btn btn-danger" (click)="subir_imagen()" [disabled]="habilitar">subir</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <hr>
 <div class="card" *ngIf="actualizar">
     <div class="card-header bg-inverse">
-      <h4 class="m-b-0 text-white">Varias Imagenes</h4>
+        <h4 class="m-b-0 text-white">Varias Imagenes</h4>
     </div>
     <div class="card-body">
-      
-     <div class="col-lg-12">
-       <div class="row">
-   
-         <div class="col-lg-6">
-           <input type="file"  (change)="seleccionImageMasiva($event.target.files)" multiple>
-           <br>
-           <br>
-           <div class="alert alert-success" *ngIf="exito_subida">
-              {{mensaje_subida}}
-        </div>
-           <br>
-           <br>
-  
-         <button class="btn btn-danger" (click)="subir_imagenMasiva()">subir</button>
-           
-         </div>
-       </div>
-     </div>
-    </div>
-  </div>
-  <br>
 
- 
- 
+        <div class="col-lg-12">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <input type="file" (change)="seleccionImageMasiva($event.target.files)" multiple>
+                    <br>
+                    <br>
+                    <div class="alert alert-success" *ngIf="exito_subida">
+                        {{mensaje_subida}}
+                    </div>
+                    <br>
+                    <br>
+
+                    <button class="btn btn-danger" (click)="subir_imagenMasiva()">subir</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

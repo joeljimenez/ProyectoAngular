@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriasService } from 'src/app/Service/service.index';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Marcas } from 'src/app/models/marcas.model';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-marcas',
   templateUrl: './marcas.component.html',
   styleUrls: ['./marcas.component.css']
 })
 export class MarcasComponent implements OnInit {
+  ruta = rutaImagen;
   actualizar = false;
   id: string;
 

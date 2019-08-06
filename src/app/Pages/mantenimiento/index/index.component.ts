@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Productos } from 'src/app/models/producto.models';
 import { ProductService } from 'src/app/Service/Productos/product.service';
 import { Router } from '@angular/router';
-
+import { rutaImagen } from '../../../URL/rutaImagen';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  ruta = rutaImagen;
   producto: any = [];
   public res: any = {
     exito: '',

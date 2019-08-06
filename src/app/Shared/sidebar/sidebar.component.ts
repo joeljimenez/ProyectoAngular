@@ -3,12 +3,15 @@ import { SidebarService } from '../../Service/service.index';
 import { LoginService } from 'src/app/Service/Login/login.service';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { Usuario } from '../../models/usuario.models';
+import { rutaImagen } from '../../URL/rutaImagen'
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styles: []
 })
 export class SidebarComponent implements OnInit {
+  ruta = rutaImagen;
 id :string;
 public res: any = {
   exito: '',
