@@ -1,0 +1,18 @@
+$color_naranja: #f69401;
+#page-404{
+    min-height: 500px;
+    .row{
+        min-height: 500px;
+    }
+    h1 {
+        .fa {
+            font-size: 3rem;
+            vertical-align: middle;
+        }
+    }
+    p{
+        a{
+            color: $color_naranja;
+        }
+    }
+}
