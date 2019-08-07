@@ -161,4 +161,12 @@ export class UsuarioService {
       .pipe(
         catchError(this.handleError('Usuario')));
   }
+
+
+  get_pago() {
+    const url_api = url + `/pago/all`;
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('Usuario')));
+  }
 }
