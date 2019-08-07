@@ -153,4 +153,12 @@ export class UsuarioService {
 
 
   }
+
+  //traer todo
+  get_contactos() {
+    const url_api = url + `/contacto/all`;
+    return this.http.get(url_api)
+      .pipe(
+        catchError(this.handleError('Usuario')));
+  }
 }

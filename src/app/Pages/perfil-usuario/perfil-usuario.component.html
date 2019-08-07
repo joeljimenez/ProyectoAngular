@@ -101,7 +101,12 @@
                 <div class="col-lg-6">
                     <input type="file" (change)="seleccionImage($event.target.files[0])">
                     <br>
-
+                    <div class="alert alert-danger" *ngIf="!error">
+                            {{ mensaje_error }}
+                        </div>
+                        <div class="alert alert-success" *ngIf="exito_foto">
+                            {{  mensaje_exito_foto }}
+                        </div>
                     <br>
 
                     <button class="btn btn-danger" (click)="subir_imagen()" [disabled]="habilitar">subir</button>

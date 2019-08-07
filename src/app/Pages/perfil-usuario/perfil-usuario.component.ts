@@ -76,6 +76,7 @@ actualizar :boolean;
     this._service.get_one_usuario(this.id).subscribe((data)=>{
       this.res = data;
       this.usuario = this.res.usuario;
+      console.log(this.usuario);
       localStorage.setItem('nombre',this.res.usuario.nombre);
  });
   }
